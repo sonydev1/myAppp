@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fira+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+ion-toolbar {
+  -background: #fff;
+  box-sizing: none;
+}
+
+ion-content {
+  --background: #ffffff;
+  #header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h2 {
+    font-family: "Fira Sans", sans-serif;
+    font-size: 25px;
+    text-align: center;
+  }
+  #from {
+    margin: 45px;
+    background: #003f75;
+    margin-top: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 80%;
+    height: 38%;
+    border-radius: 15px;
+    
+    h1 {
+      font-family: "Fira Sans";
+      font-weight: bold;
+      padding-top: 10px;
+      text-align: center;
+      font-size: 30px;
+      color: #ffffff;
+    }
+    ion-item {
+      --background: #f0ecec;
+      margin-top: 25px;
+      height: 50px;
+      border-radius: 10px;
+      font-family: "Raleway", sans-serif;
+      font-size: 19px;
+      box-sizing: none;
+    }
+    ion-button{
+      font-family: Fira ;
+      font-weight: bold;
+      font-size: 20px;
+      color: black;
+      margin-top: 25px;
+      --background: #E4D61B;
+
+    }
+  }
+}
