@@ -15,6 +15,26 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'nueva-actividad',
+    loadChildren: () => import('./pages/nueva-actividad/nueva-actividad.module').then( m => m.NuevaActividadPageModule)
+  },
+  {
+    path: 'ver-actividad',
+    loadChildren: () => import('./pages/ver-actividad/ver-actividad.module').then( m => m.VerActividadPageModule)
+  },
+  {
+    path: 'nuevo-estudiante',
+    loadChildren: () => import('./pages/nuevo-estudiante/nuevo-estudiante.module').then( m => m.NuevoEstudiantePageModule)
+  },
+  {
+    path: 'listado-estudiante',
+    loadChildren: () => import('./pages/listado-estudiante/listado-estudiante.module').then( m => m.ListadoEstudiantePageModule)
+  },
+  {
+    path: 'puntos-estudiante',
+    loadChildren: () => import('./pages/puntos-estudiante/puntos-estudiante.module').then( m => m.PuntosEstudiantePageModule)
+  }
 ];
 
 @NgModule({

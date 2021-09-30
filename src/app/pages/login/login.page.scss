@@ -1,57 +1,65 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fira+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
-ion-toolbar {
-  -background: #fff;
-  box-sizing: none;
-}
+
+
 
 ion-content {
-  --background: #ffffff;
+
   #header {
+    padding-top: 39px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  h2 {
-    font-family: "Fira Sans", sans-serif;
-    font-size: 25px;
-    text-align: center;
+      img{
+        width: 50%;
+        height: 50%;
+      }    
+    h2 {
+      font-family: "Fira Sans", sans-serif;
+      font-size: 20px;
+      text-align: center;
+    }
   }
   #from {
-    margin: 45px;
+    padding: 20px;
     background: #003f75;
-    margin-top: 90px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 80%;
-    height: 38%;
+    margin-top: 20px;   
+    width: 90%;
+    height: 45%;
     border-radius: 15px;
+
+    margin-left: auto;
+    margin-right: auto;
     
     h1 {
       font-family: "Fira Sans";
       font-weight: bold;
-      padding-top: 10px;
       text-align: center;
       font-size: 30px;
       color: #ffffff;
     }
-    ion-item {
+
+    ion-item,  {
       --background: #f0ecec;
-      margin-top: 25px;
+      margin-top: 15px;
       height: 50px;
       border-radius: 10px;
       font-family: "Raleway", sans-serif;
       font-size: 19px;
-      box-sizing: none;
+      
+    }ion-icon{
+  color: #8B8B8B;
     }
+
     ion-button{
-      font-family: Fira ;
+      font-family: Fira Sans;
       font-weight: bold;
       font-size: 20px;
       color: black;
-      margin-top: 25px;
+      margin-top: 15px;
+      width: 100%;
       --background: #E4D61B;
-
+      border-radius: 10px;
     }
   }
 }

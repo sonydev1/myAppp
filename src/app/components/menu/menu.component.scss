@@ -1,0 +1,28 @@
+
+ion-toolbar {
+  --background: #003f75;
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  p {
+    color: #ffffff;
+    font-family: "Fira Sans", sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 14px;
+    strong {
+      font-size: 30px;
+    }
+  }
+}
+ion-content {
+  --background: #003f75;
+  ion-list {
+    background-color: #003f75;
+  }
+  /* .menu{
+    margin-left: 19px;
+  } */
+}
