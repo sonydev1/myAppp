@@ -1,6 +1,20 @@
-<app-header></app-header>
+
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/home"></ion-back-button>
+          </ion-buttons>
+          <ion-buttons slot="end"routerLink="/editar-perfil">
+            <ion-avatar >
+                <img src="assets/avartar-admin.png" alt="" >
+              </ion-avatar>
+          </ion-buttons>
+    </ion-toolbar>
+</ion-header>
 
 
 <ion-content>
-<h1>listadoEstudiante</h1>
+  <ion-item color="secondary" lines="none">
+    <p>Estudiantes</p>
+  </ion-item>
 </ion-content>

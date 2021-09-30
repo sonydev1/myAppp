@@ -1,9 +1,19 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>verActividad</ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+      
+        <ion-buttons slot="end"routerLink="/editar-perfil">
+          <ion-avatar >
+              <img src="assets/avartar-admin.png" alt="" >
+            </ion-avatar>
+        </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item color="secondary" lines="none">
+    <p>Actividades</p>
+  </ion-item>
 </ion-content>

@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'puntos-estudiante',
     loadChildren: () => import('./pages/puntos-estudiante/puntos-estudiante.module').then( m => m.PuntosEstudiantePageModule)
+  },
+  {
+    path: 'editar-perfil',
+    loadChildren: () => import('./pages/editar-perfil/editar-perfil.module').then( m => m.EditarPerfilPageModule)
   }
 ];
 

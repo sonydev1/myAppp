@@ -2,6 +2,7 @@
 ion-toolbar {
   --background: #003f75;
   img {
+    margin-left: 10px;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -17,12 +18,21 @@ ion-toolbar {
     }
   }
 }
+
 ion-content {
   --background: #003f75;
   ion-list {
     background-color: #003f75;
+    margin-top: 20px;
   }
-  /* .menu{
-    margin-left: 19px;
-  } */
+  ion-label{
+    margin-bottom: 20px;
+    text-align: start;
+    color: #ffffff;
+    margin-left: 20px;
+    font-size: large; 
+  }
+  ion-item{
+    margin-top: 10px;
+  }
 }

@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>puntosEstudiante</ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/ver-actividad"></ion-back-button>
+        </ion-buttons>
+      
+        <ion-buttons slot="end"routerLink="/editar-perfil">
+          <ion-avatar >
+              <img src="assets/avartar-admin.png" alt="" >
+            </ion-avatar>
+        </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item color="secondary" lines="none">
+    <p>puntos de Estudiante</p>
+  </ion-item>
 </ion-content>

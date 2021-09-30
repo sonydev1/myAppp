@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { VerActividadPageRoutingModule } from './ver-actividad-routing.module';
 
 import { VerActividadPage } from './ver-actividad.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VerActividadPageRoutingModule
+    VerActividadPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [VerActividadPage]
 })
