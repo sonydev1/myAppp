@@ -7,18 +7,40 @@ img{
  }
 ion-header{
     align-items: stretch;
+    border-radius: 0%;
 }
-ion-item {
+.titulo{
     height: 40px;
     width: 100%;
+    
 }
 p{
     margin-top: 1px;
-    
     margin-left: auto;
     margin-right: auto;
     font-family: Raleway;
     font-weight: bold;
     font-size: 25px;
     
+}
+
+    
+ion-input{
+    --background: #f0ecec;
+    font-family: "Raleway", sans-serif;
+    color: black;
+    margin-left: 10px;
+
+    border-radius: 5px; 
+    
+}
+ion-datetime  {
+    --background: #f0ecec;
+    border-radius: 5px; 
+    margin-top: 10px;
+}
+
+ion-button{
+    margin-left: 160px;
+    --background: #0fcf5f;
 }

@@ -13,7 +13,40 @@
 </ion-header>
 
 <ion-content>
-<ion-item color="secondary" lines="none">
+<ion-item class="titulo" color="secondary" lines="none">
   <p> Nueva Actividad</p>
 </ion-item>
+
+<ion-card>
+
+  <ion-list>
+
+    <ion-item lines="none">
+    <ion-label > Titulo </ion-label>
+    <ion-input type="email"  placeholder=" Nombre de Actividad"></ion-input>
+  </ion-item><br>
+
+  <ion-item lines="none">
+    <ion-label > Puntos </ion-label>
+     <ion-input style="padding: 10px;" type="number" placeholder=" Punto de Actividad"></ion-input>
+   </ion-item><br>
+
+   <ion-item lines="none">
+    <ion-label  style="font-size: 20px;" position="stacked">Inicio Actividad</ion-label>
+    <ion-datetime  style="background:#f0ecec;" displayFormat="DD-MMMM-YYYY" placeholder="   DD-MMMM-YYYY"></ion-datetime>
+  </ion-item><br>
+
+  <ion-item lines="none">
+    <ion-label position="stacked" style="font-size: 20px;">Fin Actividad</ion-label>
+    <ion-datetime style="background:#f0ecec;" displayFormat=" DD-MMMM-YYYY" placeholder="   DD-MMMM-YYYY"></ion-datetime>
+  </ion-item><br>
+
+  <ion-button >
+    Agregar
+    <ion-icon slot="end" name="save"></ion-icon>
+  </ion-button>
+</ion-list>
+
+</ion-card>
+
 </ion-content>

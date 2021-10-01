@@ -5,9 +5,9 @@ img{
     width: 50px;
     height: 50px;
  }
-ion-header{
+/* ion-header{
     align-items: stretch;
-}
+} */
 ion-item {
     height: 40px;
     width: 100%;
@@ -21,4 +21,44 @@ p{
     font-weight: bold;
     font-size: 25px;
     
+}
+
+
+
+ion-col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+#pnt{
+    
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    margin-left: 20px;
+}
+strong{
+    margin-top: 3px;
+    font-size: 20px;
+}
+
+#mes{
+    width: 73px;
+    height: 60px;
+    text-align: center;
+    
+}
+
+ion-card-header{
+    text-align: center;
+}
+ion-card-subtitle{
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+ion-button{
+    width: 120px;
+    height: 30px;
 }

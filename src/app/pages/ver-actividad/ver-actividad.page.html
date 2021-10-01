@@ -1,14 +1,14 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button defaultHref="/"></ion-back-button>
-        </ion-buttons>
-      
-        <ion-buttons slot="end"routerLink="/editar-perfil">
-          <ion-avatar >
-              <img src="assets/avartar-admin.png" alt="" >
-            </ion-avatar>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" routerLink="/editar-perfil">
+      <ion-avatar>
+        <img src="assets/avartar-admin.png" alt="" />
+      </ion-avatar>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,4 +16,58 @@
   <ion-item color="secondary" lines="none">
     <p>Actividades</p>
   </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Titulo de la actividad</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="4">
+          <ion-card id="pnt" color="secondary">
+            <ion-label>Puntos</ion-label><br />
+            <strong>10</strong>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card id="mes">
+            <ion-label style="width: 100px; height: 20px">
+              <p style="background-color: #003f75; font-size: 13px; color: white">
+                septiembre
+              </p>
+            </ion-label>
+            <strong style="color: black; font-size: 20px; font-weight: bold">10</strong>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card id="mes">
+            <ion-label style="width: 100px; height: 20px; font-size: 12px">
+              <p style="background-color: #003f75; font-size: 13px; color: white">
+                septiembre
+              </p>
+            </ion-label>
+            <strong style="color: black; font-size: 20px; font-weight: bold">10</strong>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button color="success">
+            Editar
+            <ion-icon name="create-sharp"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="danger">
+            Eliminar
+            <ion-icon name="trash-sharp"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
