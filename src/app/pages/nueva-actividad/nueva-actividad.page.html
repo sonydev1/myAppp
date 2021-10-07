@@ -22,25 +22,28 @@
   <ion-list>
 
     <ion-item lines="none">
-    <ion-label > Titulo </ion-label>
-    <ion-input type="email"  placeholder=" Nombre de Actividad"></ion-input>
+    <ion-label > <strong>Titulo:</strong> </ion-label>
+    <ion-input type="text"  placeholder="Nombre de Actividad"></ion-input>
   </ion-item><br>
 
-  <ion-item lines="none">
-    <ion-label > Puntos </ion-label>
-     <ion-input style="padding: 10px;" type="number" placeholder=" Punto de Actividad"></ion-input>
+  <ion-item lines="none" style="width: 170px;">
+    <ion-label > <strong>Puntos:</strong> </ion-label>
+     <ion-input style="padding: 10px;" type="number"></ion-input>
    </ion-item><br>
-
-   <ion-item lines="none">
-    <ion-label  style="font-size: 20px;" position="stacked">Inicio Actividad</ion-label>
-    <ion-datetime  style="background:#f0ecec;" displayFormat="DD-MMMM-YYYY" placeholder="   DD-MMMM-YYYY"></ion-datetime>
+<ion-row>
+  <ion-col>
+   <ion-item lines="none" style="width: 135px;">
+    <ion-label  style="font-size: 20px;" position="stacked"><strong>Inicio</strong>  </ion-label>
+    <ion-datetime  style="background:#f0ecec;" displayFormat="DD-MMM-YYYY" placeholder="DD-MM-YY"></ion-datetime>
   </ion-item><br>
-
-  <ion-item lines="none">
-    <ion-label position="stacked" style="font-size: 20px;">Fin Actividad</ion-label>
-    <ion-datetime style="background:#f0ecec;" displayFormat=" DD-MMMM-YYYY" placeholder="   DD-MMMM-YYYY"></ion-datetime>
+</ion-col>
+<ion-col>
+  <ion-item lines="none" style="width: 135px;">
+    <ion-label position="stacked" style="font-size: 20px;"><strong>Fin</strong></ion-label>
+    <ion-datetime style="background:#f0ecec;" displayFormat=" DD-MMM-YYYY" placeholder="DD-MM-YY"></ion-datetime>
   </ion-item><br>
-
+  </ion-col>
+</ion-row>
   <ion-button >
     Agregar
     <ion-icon slot="end" name="save"></ion-icon>
