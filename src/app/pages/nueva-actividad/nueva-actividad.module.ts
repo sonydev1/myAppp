@@ -16,8 +16,9 @@ import { NuevaActividadPage } from './nueva-actividad.page';
     FormsModule,
     IonicModule,
     NuevaActividadPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    FormsModule,
   ],
-  declarations: [NuevaActividadPage]
+  declarations: [NuevaActividadPage],
 })
 export class NuevaActividadPageModule {}

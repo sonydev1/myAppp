@@ -1,55 +1,54 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button defaultHref="/"></ion-back-button>
-        </ion-buttons>
-      
-        <ion-buttons slot="end"routerLink="/editar-perfil">
-          <ion-avatar >
-              <img src="assets/avartar-admin.png" alt="" >
-            </ion-avatar>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" routerLink="/editar-perfil">
+      <ion-avatar>
+        <img src="assets/avartar-admin.png" alt="" />
+      </ion-avatar>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-item class="titulo" color="secondary" lines="none">
-  <p> Nueva Actividad</p>
-</ion-item>
+  <ion-item class="titulo" color="secondary" lines="none">
+    <p>Nueva Actividad</p>
+  </ion-item>
 
-<ion-card>
+  <ion-card>
+    <ion-list>
+      <ion-item lines="none">
+        <ion-label> <strong>Titulo:</strong> </ion-label>
+        <ion-input [(ngModel)]="title" type="text" placeholder="Nombre de Actividad"></ion-input>
+      </ion-item><br />
 
-  <ion-list>
-
-    <ion-item lines="none">
-    <ion-label > <strong>Titulo:</strong> </ion-label>
-    <ion-input type="text"  placeholder="Nombre de Actividad"></ion-input>
-  </ion-item><br>
-
-  <ion-item lines="none" style="width: 170px;">
-    <ion-label > <strong>Puntos:</strong> </ion-label>
-     <ion-input style="padding: 10px;" type="number"></ion-input>
-   </ion-item><br>
-<ion-row>
-  <ion-col>
-   <ion-item lines="none" style="width: 135px;">
-    <ion-label  style="font-size: 20px;" position="stacked"><strong>Inicio</strong>  </ion-label>
-    <ion-datetime  style="background:#f0ecec;" displayFormat="DD-MMM-YYYY" placeholder="DD-MM-YY"></ion-datetime>
-  </ion-item><br>
-</ion-col>
-<ion-col>
-  <ion-item lines="none" style="width: 135px;">
-    <ion-label position="stacked" style="font-size: 20px;"><strong>Fin</strong></ion-label>
-    <ion-datetime style="background:#f0ecec;" displayFormat=" DD-MMM-YYYY" placeholder="DD-MM-YY"></ion-datetime>
-  </ion-item><br>
-  </ion-col>
-</ion-row>
-  <ion-button >
-    Agregar
-    <ion-icon slot="end" name="save"></ion-icon>
-  </ion-button>
-</ion-list>
-
-</ion-card>
-
+      <ion-item lines="none" style="width: 170px">
+        <ion-label> <strong>Puntos:</strong> </ion-label>
+        <ion-input [(ngModel)]="punto" style="padding: 10px" type="number"></ion-input>
+      </ion-item><br />
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none" style="width: 135px">
+            <ion-label style="font-size: 20px" position="stacked"><strong>Inicio</strong>
+            </ion-label>
+            <ion-datetime [(ngModel)]="inicio" style="background: #f0ecec" pickerFormat="MMMM-DD-YYYY"
+              placeholder="DD-MM-YY"></ion-datetime>
+          </ion-item><br/>
+        </ion-col>
+        <ion-col>
+          <ion-item lines="none" style="width: 135px">
+            <ion-label position="stacked" style="font-size: 20px"><strong>Fin</strong></ion-label>
+            <ion-datetime [(ngModel)]="fin" style="background: #f0ecec" displayFormat="MMMM-DD-YYYY"
+            placeholder="DD-MM-YY"></ion-datetime>
+          </ion-item><br/>
+        </ion-col>
+      </ion-row>
+      <ion-button (click)="guardarActividad()">
+        Agregar
+        <ion-icon slot="end" name="save"></ion-icon>
+      </ion-button>
+    </ion-list>
+  </ion-card>
 </ion-content>
