@@ -12,8 +12,7 @@ ion-item {
     width: 100%;
 }
 p{
-    margin-top: 0.5px;
-    margin-bottom: 0.5px;
+    margin-top: 4px;
     margin-left: auto;
     margin-right: auto;
     font-family: Raleway;
@@ -31,7 +30,7 @@ ion-col{
 }
 #pnt{
     
-    width: 60px;
+    width: 70px;
     height: 60px;
     text-align: center;
     margin-left: 20px;
@@ -42,7 +41,7 @@ strong{
 }
 
 #mes{
-    width: 73px;
+    width: 70px;
     height: 60px;
     text-align: center;
     align-items: center;
@@ -59,7 +58,12 @@ ion-card-subtitle{
 }
 
 ion-button{
-    width: 130px;
-    height: 30px;
+    width: 50px;
+    height: 35px;
     
+}
+#accion{
+    --background-color: rgba(218, 218, 218, 0.712) !important;
+    display: contents;
+    align-items: stretch;
 }

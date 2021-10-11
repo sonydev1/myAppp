@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" routerLink="/editar-perfil">
+      <ion-avatar>
+        <img src="assets/avartar-admin.png" alt="" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="titulo" color="secondary" lines="none">
+    <p>Actualizar Actividad</p>
+  </ion-item>
+
+  <ion-card>
+    <ion-list>
+
+      <ion-item lines="none" >
+        <ion-label position="stacked" style="font-size: 25px;"> Titulo: </ion-label>
+        <ion-input [(ngModel)]="newActividad.titulo" type="text" placeholder="Nombre de la Actividad"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" >
+        <ion-label position="stacked" style="font-size: 25px;">Puntos </ion-label>
+        <ion-input style="width: 70%;" [(ngModel)]="newActividad.punto" type="number"></ion-input>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-label position="stacked" style="font-size: 25px;">Inicio de la Actividad</ion-label>
+        <ion-datetime style="background: #f0ecec;  width: 70%;" [(ngModel)]="newActividad.actividadI"
+          displayFormat="MMMM DD, YYYY" placeholder=" MMMM DD, YYYY"></ion-datetime>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="stacked" style="font-size: 25px;">Fin de la Actividad</ion-label>
+        <ion-datetime style="background: #f0ecec; width: 70%;" [(ngModel)]="newActividad.actividadF"
+          displayFormat="MMMM DD, YYYY" placeholder=" MMMM DD, YYYY"></ion-datetime>
+      </ion-item>
+
+
+      <ion-button color="secondary" (click)="guardarActividad()">
+        Actualizar
+        <ion-icon slot="end" name="save"></ion-icon>
+      </ion-button>
+    </ion-list>
+  </ion-card>
+
+</ion-content>
