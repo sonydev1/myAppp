@@ -1,19 +1,107 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button defaultHref="/"></ion-back-button>
-        </ion-buttons>
-      
-        <ion-buttons slot="end"routerLink="/editar-perfil">
-          <ion-avatar >
-              <img src="assets/avartar-admin.png" alt="" >
-            </ion-avatar>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" routerLink="/editar-perfil">
+      <ion-avatar>
+        <img class="perfil" src="assets/avartar-admin.png" alt="">
+      </ion-avatar>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item color="secondary" lines="none">
+  <div id="header">
     <p>Nuevo Estudiante</p>
-  </ion-item>
+  </div>
+
+<div style="margin-top: 8px; text-align: center; width: 60%; height: 40%; margin-left: 20%;">
+    <img [src]="newUser.foto" alt="">
+    
+      <ion-item lines="none"  style=" margin-top: 5px; ">
+        <label for="file-upload" style="font-size: 13px; margin-left: 20px;">
+          Agregar foto
+          <ion-icon slot="end" name="images" style="font-size: 13px;"></ion-icon>
+        </label>
+        <input (change)="imagePefil($event)" id="file-upload" style="display: none;" type="file" accept="image/*">
+      </ion-item>
+</div>
+
+  <ion-list>
+    <ion-row>
+      <ion-col size="6">
+        <ion-item lines="none">
+          <ion-label position="stacked" style="font-size: 17px;">Nombres</ion-label> 
+          <ion-input class="ew" [(ngModel)]="newUser.nombres" style="font-size: 14px; padding: 10px; height: 80px;" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    <ion-col size="6">
+      <ion-item lines="none">
+        <ion-label position="stacked" style="font-size: 17px;">Apellidos</ion-label>
+        <ion-input  class="ew" [(ngModel)]="newUser.apellidos" style="font-size: 14px;" type="text"></ion-input>
+      </ion-item>
+    </ion-col>
+    </ion-row>
+
+    
+      
+        <ion-item >
+          <ion-label position="start" >Tipo Documento</ion-label>
+          <ion-select (ionChange)="valordocumento($event)" okText="Aceptar"placeholder="ipo">
+            <ion-select-option value="C.C"><strong>C.C</strong></ion-select-option>
+            <ion-select-option value="T.I"><strong>T.I</strong></ion-select-option>
+            <ion-select-option value="C.E"><strong>C.E</strong></ion-select-option>
+            <ion-select-option value="P.A"><strong>P.A</strong></ion-select-option>
+          </ion-select>
+        </ion-item>
+     
+        <ion-item lines="none" style=" padding: 5px; ">
+          <ion-label position="fixed">Numero doc</ion-label>
+          <ion-input [(ngModel)]="newUser.ndocumento" style="font-size: 14px;" type="text"></ion-input>
+        </ion-item>
+      
+    
+
+    <ion-item lines="none" style=" padding: 5px; ">
+      <ion-label position="fixed">Email</ion-label>
+      <ion-input [(ngModel)]="newUser.email"type="text"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" style=" padding: 5px; ">
+      <ion-label position="fixed">Telefono</ion-label>
+      <ion-input [(ngModel)]="newUser.telefono" type="tel" style="width: 60%;" ></ion-input>
+    </ion-item>
+    <ion-item >
+            <ion-label >Programa</ion-label>
+            <ion-select (ionChange)="valorprograma($event)" okText="Aceptar"  placeholder="ipo">
+              <ion-select-option value=" Contaduría Pública  ">Contaduría Pública</ion-select-option>
+              <ion-select-option value=" Administración De Empresas ">Administración De Empresas</ion-select-option>
+              <ion-select-option value=" Seguridad y Salud en el Trabajo ">Seguridad y Salud en el Trabajo</ion-select-option>
+              <ion-select-option value=" Ingeniería Informática ">Ingeniería Informática</ion-select-option>
+              <ion-select-option value=" Diseño Visual ">Diseño Visual</ion-select-option>
+              <ion-select-option value=" Gestión En Salud Ocupacional ">Gestión En Salud Ocupacional</ion-select-option>
+              <ion-select-option value=" Mecánica Dental ">Mecánica Dental</ion-select-option>
+            </ion-select>
+    </ion-item>
+
+    
+    <div style="margin-top: 20px;">
+    <!--  
+    <ion-button style="margin-left: 5%;"color="danger" (click)="salir()" >
+      salir
+      <ion-icon slot="start" name="close-circle"></ion-icon>
+    </ion-button> -->
+
+    <ion-button  style="margin-left: 18%;" color="secondary" (click)="registrarse()">
+      Registrar
+      <ion-icon slot="start" name="save-outline"></ion-icon>
+    </ion-button>
+    
+  </div>
+  </ion-list>
+  
+
 </ion-content>

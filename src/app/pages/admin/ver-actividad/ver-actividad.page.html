@@ -17,22 +17,22 @@
     <p>Actividades</p>
   </ion-item>
 
-  <ion-card *ngFor="let activida of actividades" style="background-color: rgba(218, 218, 218, 0.712);">
+  <ion-card mode="md" *ngFor="let activida of actividades" style="background-color: rgba(218, 218, 218, 0.712);">
     <ion-card-header>
       <ion-card-subtitle>{{activida.titulo}}</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-row>
+      <ion-row mode="ios">
         <ion-col size="4" class="ion-align-self-start">
-          <ion-card mode="md" id="pnt" color="secondary">
-            <ion-label>Puntos</ion-label><br />
+          <ion-card  id="pnt" color="secondary">
+            <ion-label><b>Puntos</b></ion-label><br>
             <strong style="font-size: 25px;">{{activida.punto}}</strong>
           </ion-card>
         </ion-col>
 
         <ion-col size="4">
-          <ion-card  mode="md" id="mes" style="background-color: #e7e5e5">
+          <ion-card   id="mes" style="background-color: #e7e5e5">
             <ion-label style="width: 100px; height: 25px">
               <p style="background-color: #003f75; font-size: 13px; color: white">
                 {{activida.actividadI | date:'MMMM'}}
@@ -43,7 +43,7 @@
         </ion-col>
 
         <ion-col size="4" class="ion-align-items-end">
-          <ion-card mode="md" id="mes" style="background-color: #e7e5e5">
+          <ion-card  id="mes" style="background-color: #e7e5e5">
             <ion-label style="width: 100px; height: 25px; ">
               <p style="background-color: #003f75; font-size: 13px; color: white">
                 {{activida.actividadF | date:'MMMM'}}
@@ -56,7 +56,7 @@
       </ion-row>
 
     
-      <div id="accion" >
+      <div  >
       <ion-button style="margin-left: 20%;"  color="secondary" (click)="editActividad(activida)" routerLink="/edit-activida">
         <ion-icon  name="create-sharp"></ion-icon>
       </ion-button>

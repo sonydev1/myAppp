@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { PageInfoService } from 'src/app/services/page-info.service';
 import { Actividad } from '../../../models';
@@ -20,7 +21,9 @@ export class EditActividaPage implements OnInit {
   private path = 'Actividades/';
 
   constructor(public firestoreService: FirestoreService,
-              public edit: PageInfoService) { }
+              public edit: PageInfoService,
+              public loadingController: LoadingController,
+              public toastController: ToastController) { }
 
   ngOnInit() {
     const editar = this.edit.getActividad();
@@ -30,10 +33,24 @@ export class EditActividaPage implements OnInit {
     }
   }
 
-  guardarActividad() {
-    this.firestoreService.createDoc(this.newActividad, this.path, this.newActividad.id);
-    console.log('guardar');
+  actualizarActividad() {
+    this.firestoreService.createDoc(this.newActividad, this.path, this.newActividad.id).then( res =>{
+          this.presentToast('Guardado con exito');
+        }).catch(error =>{
+          this.presentToast('NO se pudo guardar');
+        });
+  }
 
+
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000,
+      color:'secondary',
+    });
+    toast.present();
   }
 
 }
+
+

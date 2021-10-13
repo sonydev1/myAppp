@@ -16,38 +16,44 @@
   <ion-item class="titulo" color="secondary" lines="none">
     <p>Actualizar Actividad</p>
   </ion-item>
-
+  
+  <ion-button  style="margin-top: 10px;" color="danger" routerLink="/ver-actividad">
+    Cancelar
+    <ion-icon slot="end" name="close-circle"></ion-icon>
+  </ion-button>
   <ion-card>
     <ion-list>
 
-      <ion-item lines="none" >
+      <ion-item lines="none" mode="md" >
         <ion-label position="stacked" style="font-size: 25px;"> Titulo: </ion-label>
         <ion-input [(ngModel)]="newActividad.titulo" type="text" placeholder="Nombre de la Actividad"></ion-input>
       </ion-item>
 
-      <ion-item lines="none" >
+      <ion-item lines="none" mode="md" >
         <ion-label position="stacked" style="font-size: 25px;">Puntos </ion-label>
         <ion-input style="width: 70%;" [(ngModel)]="newActividad.punto" type="number"></ion-input>
       </ion-item>
 
 
-      <ion-item lines="none">
+      <ion-item lines="none" mode="md">
         <ion-label position="stacked" style="font-size: 25px;">Inicio de la Actividad</ion-label>
         <ion-datetime style="background: #f0ecec;  width: 70%;" [(ngModel)]="newActividad.actividadI"
           displayFormat="MMMM DD, YYYY" placeholder=" MMMM DD, YYYY"></ion-datetime>
       </ion-item>
 
-      <ion-item lines="none">
+      <ion-item lines="none" mode="md">
         <ion-label position="stacked" style="font-size: 25px;">Fin de la Actividad</ion-label>
         <ion-datetime style="background: #f0ecec; width: 70%;" [(ngModel)]="newActividad.actividadF"
           displayFormat="MMMM DD, YYYY" placeholder=" MMMM DD, YYYY"></ion-datetime>
       </ion-item>
 
 
-      <ion-button color="secondary" (click)="guardarActividad()">
-        Actualizar
-        <ion-icon slot="end" name="save"></ion-icon>
-      </ion-button>
+      
+        <ion-button style="margin-top: 20px;" color="success" (click)="actualizarActividad()" routerLink="/ver-actividad">
+          upgrade 
+          <ion-icon  slot="start" name="create"></ion-icon>
+        </ion-button>
+  
     </ion-list>
   </ion-card>
 
