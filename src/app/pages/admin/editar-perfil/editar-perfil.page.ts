@@ -69,9 +69,6 @@ export class EditarPerfilPage implements OnInit {
       };
       reader.readAsDataURL(event.target.files[0]);
     }
-  }
-
-  async registrarse() {
     const name = this.newUser.ndocumento;
     if (this.imagePefil !== undefined) {
       const res = await this.firestorageService.uploadImage(
@@ -84,6 +81,9 @@ export class EditarPerfilPage implements OnInit {
         name
       );
       this.newUser.foto = rest;
+  }
+
+  async registrarse() {
     this.firestoreService
     .createDoc(this.newUser, this.path, this.newUser.uid)
     .then((res) => {
