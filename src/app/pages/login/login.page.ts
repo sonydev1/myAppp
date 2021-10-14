@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models';
+import { FirebaseauthService } from 'src/app/services/firebaseauth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -6,10 +12,62 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  newUser: User = {
+    uid: '',
+    nombres: '',
+    apellidos: '',
+    tipoDocumento: '',
+    ndocumento: '',
+    email: '',
+    telefono: '',
+    programa: '',
+    foto: '',
+    puntoAcomulado: 0,
+    puntoTotal: 0,
+  };
 
-  constructor() { }
 
-   ngOnInit() {
+uid='';
+  constructor(public firebaseauthService: FirebaseauthService,
+              public firestoreService: FirestoreService,
+              public alert: AlertController,
+              public router: Router) {
+
+
+                this.firebaseauthService.stateAuth().subscribe(res =>{
+                  if (res !== null) {
+                    this.uid =res.uid;
+                    console.log(res.uid);
+                  }
+
+                });
+
+
+              }
+
+ngOnInit() {
+  }
+
+  async ingresar(){
+    const credenciales = {
+      email: this.newUser.email,
+      password: this.newUser.ndocumento,
+    };
+    this.firebaseauthService.login(credenciales.email, credenciales.password).then(res =>{
+      this.router.navigate(['/home']);
+      console.log('ingreso con exito');
+    }).catch(err => {this.presentAlert();});
+  }
+
+  async presentAlert() {
+    const alert = await this.alert.create({
+      cssClass: 'my-custom-class',
+      header: 'Error',
+      message: 'Los datos son incorectos ó no exixte el usuario.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FirebaseauthService } from './services/firebaseauth.service';
+import { FirestoreService } from './services/firestore.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  uid = '';
+  constructor(
+    public firebaseauthService: FirebaseauthService,
+    public firestoreService: FirestoreService,
+    public router: Router
+  ) {
+    this.firebaseauthService.stateAuth().subscribe((res) => {
+      if (res !== null) {
+        this.uid = res.uid;
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 }

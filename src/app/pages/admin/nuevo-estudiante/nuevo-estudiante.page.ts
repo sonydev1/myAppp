@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { User } from 'src/app/models';
 import { FirebaseauthService } from 'src/app/services/firebaseauth.service';
 import { FirestorageService } from 'src/app/services/firestorage.service';
@@ -35,7 +36,8 @@ export class NuevoEstudiantePage implements OnInit {
   constructor(
     public firestorageService: FirestorageService,
     public firebaseauthService: FirebaseauthService,
-    public firestoreService: FirestoreService
+    public firestoreService: FirestoreService,
+    public toastController: ToastController
   ) {}
 
   async ngOnInit() {
@@ -65,6 +67,7 @@ export class NuevoEstudiantePage implements OnInit {
     const uid = await this.firebaseauthService.getUid();
     this.newUser.uid = uid;
     this.guardarUser();
+    
     console.log(uid);
   }
 
@@ -85,10 +88,8 @@ export class NuevoEstudiantePage implements OnInit {
     this.firestoreService
     .createDoc(this.newUser, this.path, this.newUser.uid)
     .then((res) => {
-      console.log('guardado con exito...');
-      console.log('foto ya guardada');
-            this.firebaseauthService.logout();
-            console.log('salir');
+      this.presentToast('Guardado con exito');
+      this.initUser();
       })
       .catch((error) => {});
     }
@@ -96,13 +97,34 @@ export class NuevoEstudiantePage implements OnInit {
   valorprograma(event: CustomEvent) {
     const pro = (this.optionSelect = event.detail.value);
     this.newUser.programa = pro;
-    console.log(pro);
   }
   valordocumento(event: CustomEvent) {
     const tido = (this.tipodocu = event.detail.value);
     this.newUser.tipoDocumento = tido;
-    console.log(tido);
   }
 
-  /* src="../../../../assets/perfil-defaul.png"  */
+  initUser(){
+    this.newUser ={
+      uid: '',
+    nombres: '',
+    apellidos: '',
+    tipoDocumento: '',
+    ndocumento: '',
+    email: '',
+    telefono: '',
+    programa: '',
+    foto: '../../../../assets/perfil-defaul.png',
+    puntoAcomulado: 0,
+    puntoTotal: 0,
+  };
+  }
+
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000,
+      color:'secondary',
+    });
+    toast.present();
+  }
 }

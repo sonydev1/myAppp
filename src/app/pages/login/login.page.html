@@ -14,15 +14,15 @@
     <h1>Iniciar sesión</h1>
     <ion-item lines="none">
       <ion-icon name="person-outline"></ion-icon>
-      <ion-input type="text" name="email" placeholder=" Name User"></ion-input>
+      <ion-input [(ngModel)]="newUser.email" type="text" name="email" placeholder=" Name User"></ion-input>
     </ion-item>
 
     <ion-item lines="none">
       <ion-icon name="lock-closed-outline"></ion-icon>
-      <ion-input type="Password" name="Password" placeholder=" Password"></ion-input>
+      <ion-input [(ngModel)]="newUser.ndocumento" type="Password" name="Password" placeholder=" Password"></ion-input>
     </ion-item>
 
-    <ion-button size="small">INGRESAR</ion-button>
+    <ion-button size="small" (click)="ingresar()" >INGRESAR</ion-button>
     
   </form>
 </ion-content>

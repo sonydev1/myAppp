@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
 img{
     margin-top: 5px;
@@ -14,11 +15,45 @@ ion-item {
 }
 p{
     margin-top: 1px;
-   
     margin-left: auto;
     margin-right: auto;
     font-family: Raleway;
     font-weight: bold;
     font-size: 25px;
     
+}
+
+.perfil{
+    display: flex;
+    border-radius: 100%;
+    width: 100%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.name{
+    font-size: 19px;
+    font-weight: 600px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    display: block;
+    margin-bottom: 1px !important;
+}
+.per{
+    margin-top: 0px;
+    font-size: 10px;
+}
+h5{
+    margin-top: 5px !important;
+    font-size:12px;
+    font-weight: lighter;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ion-button{
+    margin-top: 20px;
+    margin-left:54%;
+    height: 30px;
 }

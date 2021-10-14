@@ -1,20 +1,28 @@
 
-<ion-header class="ion-no-border">
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="/home"></ion-back-button>
-          </ion-buttons>
-          <ion-buttons slot="end"routerLink="/editar-perfil">
-            <ion-avatar >
-                <img src="assets/avartar-admin.png" alt="" >
-              </ion-avatar>
-          </ion-buttons>
-    </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 
 <ion-content>
   <ion-item color="secondary" lines="none">
     <p>Estudiantes</p>
   </ion-item>
+
+  <ion-card *ngFor="let us of user">
+    <ion-row>
+      <ion-col size="4">
+        <img class="perfil" [src]="us.foto" alt="">
+      </ion-col>
+
+      <ion-col >
+        <label class="txt">
+        <p class="name"><strong>{{us.nombres}}<br>{{us.apellidos}}</strong></p>
+        <h5>{{us.programa}}</h5>
+        <p class="per">{{us.email}}</p>
+        </label>
+      <ion-button color="secondary" >
+        Ver puntos
+      </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

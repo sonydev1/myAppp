@@ -10,8 +10,9 @@ import { AlertController, ToastController } from '@ionic/angular';
   styleUrls: ['./ver-actividad.page.scss'],
 })
 export class VerActividadPage implements OnInit {
-
-  actividades: Actividad[]=[];
+  
+actividades: Actividad[]=[];
+  
 
   private path = 'Actividades/';
 
@@ -39,14 +40,14 @@ export class VerActividadPage implements OnInit {
         message: 'Seguro quieres eliminar la actividad <strong> '+acti.titulo+' </strong>.',
         buttons: [
           {
-            text: 'Cancel',
+            text: 'Cancelar',
             role: 'cancel',
             cssClass: 'secondary',
-            handler: (blah) => {
+            /* handler: (blah) => {
               console.log('Confirm Cancel: blah');
-            }
+            } */
           }, {
-            text: 'Okay',
+            text: 'Confirmar',
             handler: () => {
               console.log('Confirm Okay');
               this.firestoreService.deleteDoc(this.path, acti.id).then( res =>{
@@ -64,7 +65,6 @@ export class VerActividadPage implements OnInit {
 
   editActividad(acti: Actividad){
     this.edi.setActividad(acti);
-    console.log('di click en =>',acti);
   }
 
   async presentToast(msg: string) {

@@ -1,23 +1,11 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-
-    <ion-buttons slot="end" routerLink="/editar-perfil">
-      <ion-avatar>
-        <img src="assets/avartar-admin.png" alt="" />
-      </ion-avatar>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
   <ion-item color="secondary" lines="none">
     <p>Actividades</p>
   </ion-item>
 
-  <ion-card mode="md" *ngFor="let activida of actividades" style="background-color: rgba(218, 218, 218, 0.712);">
+  <ion-card mode="md" *ngFor="let activida of actividades" style="background-color: rgba(253, 253, 253, 0.63);">
     <ion-card-header>
       <ion-card-subtitle>{{activida.titulo}}</ion-card-subtitle>
     </ion-card-header>

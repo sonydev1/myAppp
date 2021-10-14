@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
@@ -6,13 +7,20 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class FirebaseauthService {
 
-  constructor(public auth: AngularFireAuth) { }
+  constructor(public auth: AngularFireAuth,
+              public router: Router) {
+
+            this.getUid();
+
+  }
 
   login(email: string, password: string) {
     return this.auth.signInWithEmailAndPassword(email, password);
   }
   logout() {
-    this.auth.signOut();
+    this.auth.signOut().then(res =>{
+    this.router.navigate(['/login']);
+    });
   }
 
   resgirtrar(email: string, password: string){
@@ -26,5 +34,9 @@ export class FirebaseauthService {
     } else {
       return user.uid;
     }
+  }
+
+  stateAuth(){
+    return this.auth.authState;
   }
 }

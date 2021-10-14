@@ -12,8 +12,8 @@ export class FirestoreService {
     return collenction.doc(id).set(data);
   }
 
-  getDoc(path: string, id: string) {
-    const collenction = this.database.collection(path);
+  getDoc<tipo>(path: string, id: string) {
+    const collenction = this.database.collection<tipo>(path);
     return collenction.doc(id).valueChanges();
   }
 

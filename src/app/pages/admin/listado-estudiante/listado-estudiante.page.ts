@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../../models';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-listado-estudiante',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoEstudiantePage implements OnInit {
 
-  constructor() { }
+  user: User[]=[];
+
+  private path = 'UserEStudiante/';
+  constructor(public firestoreService: FirestoreService) { }
 
   ngOnInit() {
+    this.getUser();
+  }
+
+  getUser(){
+    this.firestoreService.getCollection<User>(this.path).subscribe( res=>{
+      console.log(res);
+      this.user= res;
+    });
   }
 
 }
