@@ -5,7 +5,7 @@
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
 
-    <ion-buttons slot="end"routerLink="/editar-perfil">
+    <ion-buttons slot="end" (click)="abirmenu($event)">
       <ion-avatar >
           <img [src]='newUser.foto' alt="" >
         </ion-avatar>

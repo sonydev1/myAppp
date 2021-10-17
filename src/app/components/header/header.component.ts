@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
 import { User } from 'src/app/models';
 import { FirebaseauthService } from 'src/app/services/firebaseauth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { PopinfoComponent } from '../popinfo/popinfo.component';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +20,7 @@ export class HeaderComponent implements OnInit {
     tipoDocumento: '',
     ndocumento: '',
     email: '',
-    telefono: '',
+    telefono: 0,
     programa: '',
     foto: '../../../../assets/perfil-defaul.png',
     puntoAcomulado: 0,
@@ -30,7 +32,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(public firebaseauthService: FirebaseauthService,
               public firestoreService: FirestoreService,
-              public router: Router ) {
+              public router: Router,
+              public popoverController: PopoverController ) {
 
                 this.firebaseauthService.stateAuth().subscribe(res =>{
                   if (res !== null) {
@@ -52,5 +55,16 @@ export class HeaderComponent implements OnInit {
       this.newUser =res;
     });
   }
+
+  async abirmenu(ev: any) {
+    const popover = await this.popoverController.create({
+    component: PopinfoComponent,
+    cssClass: 'secondary',
+    event: ev,
+    translucent: true,
+    mode: 'ios',
+});
+await popover.present();
+}
 
 }

@@ -5,21 +5,15 @@
     <p>Actividades</p>
   </ion-item><br>
 
-  
-
   <ion-searchbar animated 
                 (ionChange)="buscar($event)">
   </ion-searchbar>
-  
-  <ion-button  style="margin-top: 10px; width: 104px;" color="secondary" routerLink="/nueva-actividad">
-    Nueva 
-    <ion-icon slot="start" name="reader-outline"></ion-icon>
-  </ion-button>
+
     
 
   <ion-card mode="md" *ngFor="let activida of actividades | filtro: textoBuscar: 'titulo' " 
   
->
+  style="background-color: rgba(189, 189, 189, 0.651); width: 280px;margin: auto; margin-top: 20px;">
     <ion-card-header>
       <ion-card-subtitle>{{activida.titulo}}</ion-card-subtitle>
     </ion-card-header>
@@ -33,10 +27,10 @@
           </ion-card>
         </ion-col>
 
-        <ion-col size="4">
-          <ion-card   id="mes" style="background-color: #ddddddbb">
+        <ion-col size="4" style="right: 7px;">
+          <ion-card   id="mes" style="background-color: #e7e5e5; margin-left: auto;">
             <ion-label style="width: 100px; height: 25px">
-              <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
+              <p style="background-color: #003f75; font-size: 13px; color: white; margin: auto;">
                 {{activida.actividadI | date:'MMMM'}}
               </p>
             </ion-label>
@@ -45,9 +39,9 @@
         </ion-col>
 
         <ion-col size="4" class="ion-align-items-end">
-          <ion-card  id="mes" style="background-color: #ddddddbb">
+          <ion-card  id="mes" style="background-color: #e7e5e5; margin-left: auto; ">
             <ion-label style="width: 100px; height: 25px; ">
-              <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
+              <p style="background-color: #003f75; font-size: 13px; color: white; margin: auto;">
                 {{activida.actividadF | date:'MMMM'}}
               </p>
             </ion-label>
@@ -57,19 +51,14 @@
         </ion-col>
       </ion-row>
 
+      
     
-      <div  >
-      <ion-button style="margin-left: 26%;"  color="secondary" (click)="editActividad(activida)" routerLink="/edit-activida">
-        <ion-icon  name="create-sharp"></ion-icon>
-      </ion-button>
-
-      <ion-button style="margin-left: 20%;" color="danger" (click)="deleteActividad(activida)">
-        <ion-icon  name="trash"></ion-icon>
+      <div>
+      <ion-button  mode="ios" style="margin-left: 80%;" (click)="verActividad(activida)" routerLink="/info-actividad" color="secondary">
+        ver
       </ion-button>
     </div>
 
     </ion-card-content>
   </ion-card>
-
-  
 </ion-content>

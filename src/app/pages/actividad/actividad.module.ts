@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ListadoEstudiantePageRoutingModule } from './listado-estudiante-routing.module';
+import { ActividadPageRoutingModule } from './actividad-routing.module';
 
-import { ListadoEstudiantePage } from './listado-estudiante.page';
-import { ComponentsModule } from '../../../components/components.module';
+import { ActividadPage } from './actividad.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
@@ -15,10 +15,10 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    ListadoEstudiantePageRoutingModule,
+    ActividadPageRoutingModule,
     ComponentsModule,
     PipesModule
   ],
-  declarations: [ListadoEstudiantePage]
+  declarations: [ActividadPage]
 })
-export class ListadoEstudiantePageModule {}
+export class ActividadPageModule {}

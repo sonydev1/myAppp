@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
+
+ion-content{
+    --background: rgba(187, 187, 187, 0.644);
+}
 img{
     margin-top: 5px;
     width: 50px;
@@ -41,8 +45,9 @@ p{
     margin-bottom: 1px !important;
 }
 .per{
-    margin-top: 0px;
     font-size: 10px;
+    width: 145px;
+    margin: inherit;
 }
 h5{
     margin-top: 5px !important;
@@ -54,6 +59,8 @@ h5{
 
 ion-button{
     margin-top: 20px;
-    margin-left:54%;
-    height: 30px;
+    margin-left: 39%;
+    height: 25px;
+    width: 105px;
 }
+

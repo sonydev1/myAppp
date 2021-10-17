@@ -10,6 +10,7 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 export class ListadoEstudiantePage implements OnInit {
 
   user: User[]=[];
+  textoBuscar= '';
 
   private path = 'UserEStudiante/';
   constructor(public firestoreService: FirestoreService) { }
@@ -23,6 +24,10 @@ export class ListadoEstudiantePage implements OnInit {
       console.log(res);
       this.user= res;
     });
+  }
+
+  buscar(event){
+    this.textoBuscar = event.detail.value;
   }
 
 }

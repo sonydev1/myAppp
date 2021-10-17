@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
     tipoDocumento: '',
     ndocumento: '',
     email: '',
-    telefono: '',
+    telefono: 0,
     programa: '',
     foto: '../../../../assets/perfil-defaul.png',
     puntoAcomulado: 0,

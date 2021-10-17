@@ -18,6 +18,7 @@ export class AppComponent {
     this.firebaseauthService.stateAuth().subscribe((res) => {
       if (res !== null) {
         this.uid = res.uid;
+        console.log('pase');
       } else {
         this.router.navigate(['/login']);
       }

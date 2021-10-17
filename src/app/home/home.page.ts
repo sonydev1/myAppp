@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { User } from '../models';
 import { FirebaseauthService } from '../services/firebaseauth.service';
 import { FirestoreService } from '../services/firestore.service';
+import { PopoverController } from '@ionic/angular';
+import { PopinfoComponent } from '../components/popinfo/popinfo.component';
+
+
 
 @Component({
   selector: 'app-home',
@@ -19,7 +23,7 @@ export class HomePage implements OnInit{
     tipoDocumento: '',
     ndocumento: '',
     email: '',
-    telefono: '',
+    telefono: 0,
     programa: '',
     foto: '../../../../assets/perfil-defaul.png',
     puntoAcomulado: 0,
@@ -31,12 +35,16 @@ export class HomePage implements OnInit{
 
   constructor(public firebaseauthService: FirebaseauthService,
               public firestoreService: FirestoreService,
-              public router: Router ) {
+              public router: Router,
+              public popoverController: PopoverController) {
 
                 this.firebaseauthService.stateAuth().subscribe(res =>{
                   if (res !== null) {
                     this.uid =res.uid;
                     this.getInfo(this.uid);
+                  }else{
+                    console.log('no puedo pasar');
+                    this.router.navigate(['/login']);
                   }
                 });
               }
@@ -52,6 +60,17 @@ export class HomePage implements OnInit{
     this.firestoreService.getDoc<User>(this.path, uid).subscribe(res =>{
       this.newUser =res;
     });
+  }
+
+  async abirmenu(ev: any) {
+        const popover = await this.popoverController.create({
+        component: PopinfoComponent,
+        cssClass: 'secondary',
+        event: ev,
+        translucent: true,
+        mode: 'ios',
+    });
+    await popover.present();
   }
 
 }

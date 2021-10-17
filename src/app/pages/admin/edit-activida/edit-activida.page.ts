@@ -19,6 +19,7 @@ export class EditActividaPage implements OnInit {
     punto:0,
     actividadI:null,
     actividadF:null,
+    descripcion:''
   };
 
   newUser: User = {
@@ -28,7 +29,7 @@ export class EditActividaPage implements OnInit {
     tipoDocumento: '',
     ndocumento: '',
     email: '',
-    telefono: '',
+    telefono: 0,
     programa: '',
     foto: '../../../../assets/perfil-defaul.png',
     puntoAcomulado: 0,
@@ -42,11 +43,10 @@ export class EditActividaPage implements OnInit {
 
   constructor(public firestoreService: FirestoreService,
               public edit: PageInfoService,
-              public loadingController: LoadingController,
               public toastController: ToastController,
               public firebaseauthService: FirebaseauthService,
               public router: Router) {
- 
+
                 this.firebaseauthService.stateAuth().subscribe(res =>{
                   if (res !== null) {
                     this.uid = res.uid;
@@ -61,6 +61,8 @@ export class EditActividaPage implements OnInit {
     const editar = this.edit.getActividad();
     if (editar !== undefined) {
       this.newActividad = editar;
+      console.log('info se puede ver para editar');
+
     }
   }
 

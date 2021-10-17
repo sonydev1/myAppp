@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
     tipoDocumento: '',
     ndocumento: '',
     email: '',
-    telefono: '',
+    telefono: 0,
     programa: '',
     foto: '',
     puntoAcomulado: 0,
@@ -35,8 +35,12 @@ uid='';
 
 
                 this.firebaseauthService.stateAuth().subscribe(res =>{
-                  if (res !== null) {
+                  if (res == null) {
+                    console.log('no puedo pasar');
+                    this.router.navigate(['/login']);
+                  }else{
                     this.uid =res.uid;
+                    console.log('listo');
                     console.log(res.uid);
                   }
 
@@ -56,6 +60,7 @@ ngOnInit() {
     this.firebaseauthService.login(credenciales.email, credenciales.password).then(res =>{
       this.router.navigate(['/home']);
       console.log('ingreso con exito');
+      this.initUser();
     }).catch(err => {this.presentAlert();});
   }
 
@@ -68,6 +73,22 @@ ngOnInit() {
     });
 
     await alert.present();
+  }
+
+  initUser(){
+    this.newUser ={
+      uid: '',
+    nombres: '',
+    apellidos: '',
+    tipoDocumento: '',
+    ndocumento: '',
+    email: '',
+    telefono: 0,
+    programa: '',
+    foto: '../../../../assets/perfil-defaul.png',
+    puntoAcomulado: 0,
+    puntoTotal: 0,
+  };
   }
 
 }

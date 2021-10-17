@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 
-
-ion-content{
-    --background: rgba(187, 187, 187, 0.644);
-}
-
 ion-item {
     height: 40px;
     width: 100%;
@@ -20,7 +15,6 @@ p{
 }
 
 
-
 ion-col{
     display: flex;
     flex-direction: column;
@@ -34,7 +28,7 @@ ion-col{
 }
 strong{
     font-size: 20px;
-    margin-right: 6px;
+    margin: auto;
 }
 
 #mes{
@@ -52,10 +46,4 @@ ion-card-subtitle{
     color: black;
     font-size: 17px;
     font-weight: bold;
-}
-
-ion-button{
-    width: 50px;
-    height: 35px;
-    
 }

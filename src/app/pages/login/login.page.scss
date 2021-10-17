@@ -21,11 +21,11 @@ ion-content {
     }
   }
   #from {
-    padding: 20px;
+    padding: 14px;
+    margin-top: 50px;
     background: #003f75;
-    margin-top: 20px;   
     width: 90%;
-    height: 45%;
+    height: 42%;
     border-radius: 15px;
 
     margin-left: auto;
@@ -37,6 +37,7 @@ ion-content {
       text-align: center;
       font-size: 30px;
       color: #ffffff;
+      margin-top: 0px;
     }
 
     ion-item {
@@ -47,8 +48,9 @@ ion-content {
       font-family: "Raleway", sans-serif;
       font-size: 19px;
       
-    }ion-icon{
-  color: #8B8B8B;
+    }
+    ion-icon{
+      color: #8B8B8B;
     }
 
     ion-button{

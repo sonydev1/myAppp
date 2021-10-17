@@ -5,6 +5,7 @@ export interface Actividad{
     punto: number;
     actividadI: Date;
     actividadF: Date;
+    descripcion: string;
 }
 
 
@@ -15,9 +16,20 @@ export interface User {
   tipoDocumento: string;
   ndocumento: string;
   email: string;
-  telefono: string;
+  telefono: number;
   programa: string;
   foto: string;
   puntoAcomulado: number;
   puntoTotal: number;
 }
+
+export interface Listo {
+  id: string;
+  user: User;
+  activdades: Actividad [];
+  puntototal: number;
+  estado: EstadoActividad;
+  fecha: Date;
+}
+
+export type EstadoActividad= 'listo' |  'eviado';

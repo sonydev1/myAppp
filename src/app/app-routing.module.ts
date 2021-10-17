@@ -44,7 +44,19 @@ const routes: Routes = [
   {
     path: 'edit-activida',
     loadChildren: () => import('./pages/admin/edit-activida/edit-activida.module').then( m => m.EditActividaPageModule)
+  },  {
+    path: 'actividad',
+    loadChildren: () => import('./pages/actividad/actividad.module').then( m => m.ActividadPageModule)
+  },
+  {
+    path: 'puntos',
+    loadChildren: () => import('./pages/puntos/puntos.module').then( m => m.PuntosPageModule)
+  },
+  {
+    path: 'info-actividad',
+    loadChildren: () => import('./pages/info-actividad/info-actividad.module').then( m => m.InfoActividadPageModule)
   }
+
 ];
 
 @NgModule({

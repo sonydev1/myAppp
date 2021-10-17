@@ -8,6 +8,7 @@ import { VerActividadPageRoutingModule } from './ver-actividad-routing.module';
 
 import { VerActividadPage } from './ver-actividad.page';
 import { ComponentsModule } from '../../../components/components.module';
+import { PipesModule } from '../../../pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from '../../../components/components.module';
     FormsModule,
     IonicModule,
     VerActividadPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    PipesModule
   ],
   declarations: [VerActividadPage]
 })

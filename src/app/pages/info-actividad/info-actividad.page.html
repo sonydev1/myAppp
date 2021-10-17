@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<ion-content>  
+  
+  <ion-item color="secondary" lines="none">
+    <p>Actividad</p>
+  </ion-item><br>
+
+
+  <ion-card mode="md" style="background-color: #e7e5e5">
+    <ion-card-header>
+      <ion-card-subtitle>{{newActividad.titulo}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row mode="ios">
+        <ion-col size="4" class="ion-align-self-start">
+          <ion-card  id="pnt" color="secondary">
+            <ion-label><b>Puntos</b></ion-label><br>
+            <strong style="font-size: 25px;">{{newActividad.punto}}</strong>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card   id="mes" style="background-color: #e7e5e5">
+            <ion-label style="width: 100px; height: 25px">
+              <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
+                {{newActividad.actividadI | date:'MMMM'}}
+              </p>
+            </ion-label>
+            <strong style="color: black; font-size: 25px; font-weight: bold;">{{newActividad.actividadI |date:'dd'}}</strong>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4" class="ion-align-items-end">
+          <ion-card  id="mes" style="background-color: #e7e5e5">
+            <ion-label style="width: 100px; height: 25px; ">
+              <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
+                {{newActividad.actividadF | date:'MMMM'}}
+              </p>
+            </ion-label>
+            <strong style="margin:auto; color: black; font-size: 25px; font-weight: bold;">{{newActividad.actividadF |
+              date:'dd'}}</strong>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-card-content style="background-color: rgba(187, 187, 187, 0.644); border-radius: 15px;">
+        <label style="color: black;">{{newActividad.descripcion}}</label>
+      </ion-card-content>
+    </ion-card-content>
+    <ion-button mode="ios" color="secondary" style="margin-left: 66%; margin-bottom: 10px;" (click)="addActi()">
+      Realizar
+    </ion-button>
+  </ion-card>
+
+
+</ion-content>

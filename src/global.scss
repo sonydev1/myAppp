@@ -28,3 +28,7 @@
 :root{
     --ion-color-secondary: #003f75;
 }
+
+.searchbar-input.sc-ion-searchbar-ios{
+    --background: white !important;
+}

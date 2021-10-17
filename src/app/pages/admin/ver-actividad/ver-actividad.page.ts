@@ -1,8 +1,10 @@
 import { PageInfoService } from '../../../services/page-info.service';
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from 'src/app/services/firestore.service';
-import { Actividad } from '../../../models';
+import { Actividad, User } from '../../../models';
 import { AlertController, ToastController } from '@ionic/angular';
+import { FirebaseauthService } from 'src/app/services/firebaseauth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ver-actividad',
@@ -10,16 +12,45 @@ import { AlertController, ToastController } from '@ionic/angular';
   styleUrls: ['./ver-actividad.page.scss'],
 })
 export class VerActividadPage implements OnInit {
-  
-actividades: Actividad[]=[];
-  
 
+  newUser: User = {
+    uid: '',
+    nombres: '',
+    apellidos: '',
+    tipoDocumento: '',
+    ndocumento: '',
+    email: '',
+    telefono: 0,
+    programa: '',
+    foto: '',
+    puntoAcomulado: 0,
+    puntoTotal: 0,
+  };
+
+actividades: Actividad[]=[];
+textoBuscar= '';
+
+uid='';
   private path = 'Actividades/';
 
   constructor(public firestoreService: FirestoreService,
               public edi: PageInfoService,
               public alertController: AlertController,
-              public toastController: ToastController) { }
+              public toastController: ToastController,
+              public firebaseauthService: FirebaseauthService,
+              public router: Router) {
+
+                this.firebaseauthService.stateAuth().subscribe(res =>{
+                  if (res === null || res === undefined) {
+                    console.log('no puedo pasar');
+                    this.router.navigate(['/login']);
+                  }else{
+                    this.uid =res.uid;
+                    console.log(this.uid);
+                  }
+                });
+              }
+
 
 
   ngOnInit() {
@@ -28,7 +59,6 @@ actividades: Actividad[]=[];
 
   getActividades(){
     this.firestoreService.getCollection<Actividad>(this.path).subscribe( res=>{
-      console.log(res);
       this.actividades= res;
     });
   }
@@ -43,9 +73,6 @@ actividades: Actividad[]=[];
             text: 'Cancelar',
             role: 'cancel',
             cssClass: 'secondary',
-            /* handler: (blah) => {
-              console.log('Confirm Cancel: blah');
-            } */
           }, {
             text: 'Confirmar',
             handler: () => {
@@ -74,6 +101,10 @@ actividades: Actividad[]=[];
       color: 'secondary',
     });
     toast.present();
+  }
+
+  buscar( event ){
+    this.textoBuscar = event.detail.value;
   }
 
 }

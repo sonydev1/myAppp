@@ -1,15 +1,14 @@
-<app-header></app-header>
 
 <ion-content>
   <div id="header">
-    <p>Nuevo Estudiante</p>
+    <p>Nuevo Usuario</p>
   </div>
 
 <div style="margin-top: 8px; text-align: center; width: 60%; height: 40%; margin-left: 20%;">
     <img [src]="newUser.foto" alt="">
     
       <ion-item lines="none"  style=" margin-top: 5px; ">
-        <label for="file-upload" style="font-size: 13px; margin-left: 20px;">
+        <label for="file-upload" style="font-size: 13px; margin-left: 30px;">
           Agregar foto
           <ion-icon slot="end" name="images" style="font-size: 13px;"></ion-icon>
         </label>
@@ -48,7 +47,7 @@
     
         <ion-item lines="none" style=" padding: 5px; ">
           <ion-label position="fixed">Numero doc</ion-label>
-          <ion-input [(ngModel)]="newUser.ndocumento" style="font-size: 14px;" type="text"></ion-input>
+          <ion-input [(ngModel)]="newUser.ndocumento" style="font-size: 14px;" type="number"></ion-input>
         </ion-item>
       
     
@@ -60,7 +59,7 @@
 
     <ion-item lines="none" style=" padding: 5px; ">
       <ion-label position="fixed">Telefono</ion-label>
-      <ion-input [(ngModel)]="newUser.telefono" type="tel" style="width: 60%;" ></ion-input>
+      <ion-input [(ngModel)]="newUser.telefono" type="number" style="width: 60%;"></ion-input>
     </ion-item>
     <ion-item >
             <ion-label >Programa</ion-label>
@@ -77,8 +76,11 @@
 
     
     <div style="margin-top: 20px;">
-
-    <ion-button  style="margin-left: 30%;" color="secondary" (click)="registrarse()">
+      <ion-button  style="margin-left: 3%" color="secondary" routerLink="/login" >
+        Login
+        <ion-icon slot="start" name="enter"></ion-icon>
+      </ion-button>
+    <ion-button mode="ios" style="margin-left: 37%;" color="secondary" (click)="registrarse()">
       Registrar
       <ion-icon slot="start" name="save-outline"></ion-icon>
     </ion-button>

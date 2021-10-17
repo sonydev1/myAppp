@@ -20,7 +20,7 @@ export class EditarPerfilPage implements OnInit {
     tipoDocumento: '',
     ndocumento: '',
     email: '',
-    telefono: '',
+    telefono: 0,
     programa: '',
     foto: '../../../../assets/perfil-defaul.png',
     puntoAcomulado: 0,
@@ -69,7 +69,7 @@ export class EditarPerfilPage implements OnInit {
       };
       reader.readAsDataURL(event.target.files[0]);
     }
-    const name = this.newUser.ndocumento;
+    const name = this.newUser.uid;
     if (this.imagePefil !== undefined) {
       const res = await this.firestorageService.uploadImage(
         this.newFile, this.path,name);

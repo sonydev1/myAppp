@@ -2,6 +2,7 @@ import { Actividad } from '../../../models';
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 
@@ -20,12 +21,14 @@ export class NuevaActividadPage implements OnInit {
     punto:0,
     actividadI:null,
     actividadF:null,
+    descripcion: ''
   };
 
 private path = 'Actividades/';
 
   constructor(public firestoreService: FirestoreService,
-              public toastController: ToastController) {}
+              public toastController: ToastController,
+              public roter: Router) {}
 
   ngOnInit() {
   }
@@ -34,6 +37,7 @@ private path = 'Actividades/';
     this.firestoreService.createDoc(this.newActividad, this.path, this.newActividad.id).then( res =>{
       this.presentToast('Guardado con exito');
       this.initActividad();
+      this.roter.navigate(['/ver-actividad']);
     }).catch(error =>{
       this.presentToast('NO se pudo guardar');
     });
@@ -58,6 +62,7 @@ private path = 'Actividades/';
       punto:0,
       actividadI:null,
       actividadF: null,
+      descripcion: ''
     };
   }
 

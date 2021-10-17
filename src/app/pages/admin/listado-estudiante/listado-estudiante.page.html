@@ -3,11 +3,13 @@
 
 
 <ion-content>
-  <ion-item color="secondary" lines="none">
+  <ion-item  color="secondary" lines="none">
     <p>Estudiantes</p>
   </ion-item>
 
-  <ion-card *ngFor="let us of user">
+  <ion-searchbar   animated (ionChange)="buscar($event)"></ion-searchbar>
+
+  <ion-card *ngFor="let us of user | filtro: textoBuscar: 'nombres'">
     <ion-row>
       <ion-col size="4">
         <img class="perfil" [src]="us.foto" alt="">
@@ -25,4 +27,5 @@
       </ion-col>
     </ion-row>
   </ion-card>
+  
 </ion-content>

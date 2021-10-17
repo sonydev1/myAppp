@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { User } from 'src/app/models';
 import { FirebaseauthService } from 'src/app/services/firebaseauth.service';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from '../../../services/firestore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nuevo-estudiante',
@@ -18,7 +19,7 @@ export class NuevoEstudiantePage implements OnInit {
     tipoDocumento: '',
     ndocumento: '',
     email: '',
-    telefono: '',
+    telefono: null,
     programa: '',
     foto: '../../../../assets/perfil-defaul.png',
     puntoAcomulado: 0,
@@ -33,17 +34,23 @@ export class NuevoEstudiantePage implements OnInit {
   tipodocu: string;
   path = 'UserEStudiante';
 
-  constructor(
-    public firestorageService: FirestorageService,
-    public firebaseauthService: FirebaseauthService,
-    public firestoreService: FirestoreService,
-    public toastController: ToastController
+  constructor(private firestorageService: FirestorageService,
+    private firebaseauthService: FirebaseauthService,
+    private firestoreService: FirestoreService,
+    private toastController: ToastController,
+    private router: Router,
+    private alert: AlertController
   ) {}
 
   async ngOnInit() {
-    const uid = await this.firebaseauthService.getUid();
-    console.log(uid);
-  }
+        const alert = await this.alert.create({
+          cssClass: 'my-custom-class',
+          header: 'IMPORTANTE',
+          message: 'Tu contraseña de inico de sesion al princio es tu numero de documento, luego la puedes cambiar .',
+          buttons: ['OK']
+        });
+        await alert.present();
+    }
 
 
   async imagePefil(event: any) {
@@ -58,6 +65,10 @@ export class NuevoEstudiantePage implements OnInit {
   }
 
   async registrarse() {
+    if(this.guardarUser === this.initUser){
+
+      this.presentToast('error al registrase');
+    }else{
     const credenciales = {
       email: this.newUser.email,
       password: this.newUser.ndocumento,
@@ -66,14 +77,13 @@ export class NuevoEstudiantePage implements OnInit {
     console.log(res);
     const uid = await this.firebaseauthService.getUid();
     this.newUser.uid = uid;
-    this.guardarUser();
-    
-    console.log(uid);
+      this.guardarUser();
+      console.log(uid);
+  }
   }
 
-
   async guardarUser() {
-    const name = this.newUser.ndocumento;
+    const name = this.newUser.uid;
     if (this.imagePefil !== undefined) {
       const res = await this.firestorageService.uploadImage(
         this.newFile, this.path,name);
@@ -88,8 +98,8 @@ export class NuevoEstudiantePage implements OnInit {
     this.firestoreService
     .createDoc(this.newUser, this.path, this.newUser.uid)
     .then((res) => {
-      this.presentToast('Guardado con exito');
-      this.initUser();
+      this.presentToast('Ristrado con exito');
+      this.router.navigate(['/home']);
       })
       .catch((error) => {});
     }
@@ -111,7 +121,7 @@ export class NuevoEstudiantePage implements OnInit {
     tipoDocumento: '',
     ndocumento: '',
     email: '',
-    telefono: '',
+    telefono: 0,
     programa: '',
     foto: '../../../../assets/perfil-defaul.png',
     puntoAcomulado: 0,

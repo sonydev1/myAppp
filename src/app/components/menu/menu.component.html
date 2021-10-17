@@ -1,7 +1,7 @@
 
 
 
-<ion-menu side="start" menuId="PrimerMenu" contentId="main">
+<ion-menu side="start" menuId="PrimerMenu"  contentId="main">
   <ion-header class="ion-no-border" >
     <ion-toolbar>
       <ion-grid>
@@ -13,7 +13,7 @@
               
             </div>
           </ion-col>
-          <ion-col class="ion-align-self-start" >
+          <ion-col  style="margin: auto;" >
             <strong>Hola,</strong><br/>
             <ion-label style="color: white;">{{newUser.nombres}}</ion-label>
           </ion-col>
@@ -25,34 +25,39 @@
 
     <ion-menu-toggle >
     <ion-list color="secondary" lines="none">
-      <ion-label> Actividades </ion-label>
       <ion-item detail routerLink="/nueva-actividad" calss="menu" color="secondary">
         <ion-icon slot="start" name="calendar-number-sharp"></ion-icon> Nueva
         Actividad
       </ion-item>
       <ion-item detail routerLink="/ver-actividad" calss="menu" color="secondary">
         <ion-icon slot="start"name="calendar-sharp"></ion-icon> Ver Actividades
-      </ion-item><br>
+      </ion-item>
 
-      <ion-label > Estudiantes </ion-label>
+    <ion-item detail routerLink="/actividad" calss="menu" color="secondary">
+      <ion-icon slot="start"name="calendar-sharp"></ion-icon> Actividades
+    </ion-item>
+
       <ion-item detail routerLink="/nuevo-estudiante" calss="menu" color="secondary">
         <ion-icon slot="start"name="person-add"></ion-icon>Nuevo Estudiante
       </ion-item>
       <ion-item detail routerLink="/listado-estudiante" calss="menu" color="secondary">
         <ion-icon slot="start"name="list"></ion-icon>Listar Estudiantes
       </ion-item>
-
-      <ion-item style="margin-top: 55%;" detail routerLink="/editar-perfil" calss="menu" color="secondary">
-        <ion-icon slot="start" name="person"></ion-icon>Editar perfil
-      </ion-item>
-
-      <ion-item   calss="menu" color="secondary" (click)="salir()">
-        <ion-icon slot="start"name="power" (click)="salir()"></ion-icon>Cerar Sesión
-      </ion-item>
     </ion-list>
-    
+  
   </ion-menu-toggle>
   </ion-content>
+  <ion-footer colo="secondary" >
+    <ion-toolbar>
+    <ion-item  lines="none" detail routerLink="/editar-perfil" calss="menu" color="secondary">
+      <ion-icon slot="start" name="person"></ion-icon>Editar perfil
+    </ion-item>
+
+    <ion-item   lines="none" calss="menu" color="secondary" (click)="salir()">
+      <ion-icon slot="start"name="log-out" (click)="salir()"></ion-icon>Cerar Sesión
+    </ion-item>
+  </ion-toolbar>
+  </ion-footer>
 </ion-menu>
 <ion-router-outlet id="main"></ion-router-outlet>
 
