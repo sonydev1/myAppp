@@ -79,9 +79,9 @@ export class ActividadService {
 
         if (ver !== undefined) {
           const alert = await this.alertController.create({
-            cssClass: 'secondary',
-            header: 'ALERTA',
-            message: 'Esta actividad ya fue enviada escoger otra',
+            cssClass: 'normalidad',
+            header: '    ALERTA   ',
+            message: 'Esta actividad ya fue enviada </br></br><b>Porfavor realizar otra actividad</b>',
             buttons: [
               {
                 text: 'Confirmar',
@@ -98,6 +98,7 @@ export class ActividadService {
         }
     }else{
       this.router.navigate(['/login']);
+      return;
     }
     console.log('add Actividad =>',this.list);
     const path = 'UserEStudiante/' + this.uid + '/Realizado';

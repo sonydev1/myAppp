@@ -39,7 +39,11 @@ ion-datetime  {
 }
 
 ion-button{
-    margin-left: 50%;
+    margin-left: 57%;
     margin-top: 20px;
+    /* height: -webkit-fill-available; */
+    height: 30px;
+    width: auto;
+    margin-bottom: 10px;
 
 }

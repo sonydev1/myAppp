@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PuntosPageRoutingModule } from './puntos-routing.module';
 
 import { PuntosPage } from './puntos.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PuntosPageRoutingModule
+    PuntosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [PuntosPage]
 })

@@ -5,12 +5,13 @@
     <p>Actualizar Actividad</p>
   </ion-item>
   
-  <ion-button  style="margin-top: 10px;" color="danger" routerLink="/ver-actividad">
+  <ion-button  style="margin-top: 5px; height: 30px;
+    width: 112px;margin-left: 62%" color="danger" routerLink="/ver-actividad">
     Cancelar
     <ion-icon slot="end" name="close-circle"></ion-icon>
   </ion-button>
   
-  <ion-card>
+  <ion-card style="margin-top: 2px;">
     <ion-list>
 
       <ion-item lines="none" mode="md" >
@@ -36,14 +37,17 @@
           displayFormat="MMMM DD, YYYY" placeholder=" MMMM DD, YYYY"></ion-datetime>
       </ion-item>
 
-
       
-        <ion-button style="margin-top: 20px;" color="success" (click)="actualizarActividad()">
-          upgrade 
-          <ion-icon  slot="start" name="create"></ion-icon>
-        </ion-button>
+    </ion-list><br>
+    <ion-label position="stacked" style="font-size: 20px; color:black;margin-left: 16px; ">Descrpción</ion-label>
+    <ion-textarea  style="background: #f0ecec; width: 90%; margin: auto; border-radius: 10px;" [(ngModel)]="newActividad.descripcion"></ion-textarea>
   
-    </ion-list>
+    <ion-button style="margin-top: 20px;
+    margin-left: 57%;
+    height: 30px;" color="success" (click)="actualizarActividad()">
+      upgrade 
+      <ion-icon  slot="start" name="create"></ion-icon>
+    </ion-button>
   </ion-card>
 
 </ion-content>

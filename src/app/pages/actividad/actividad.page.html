@@ -13,7 +13,7 @@
 
   <ion-card mode="md" *ngFor="let activida of actividades | filtro: textoBuscar: 'titulo' " 
   
-  style="background-color: rgba(189, 189, 189, 0.651); width: 280px;margin: auto; margin-top: 20px;">
+  style="border-radius: 10px; width: 283px; margin: auto; margin-top: 20px;">
     <ion-card-header>
       <ion-card-subtitle>{{activida.titulo}}</ion-card-subtitle>
     </ion-card-header>
@@ -54,7 +54,7 @@
       
     
       <div>
-      <ion-button  mode="ios" style="margin-left: 80%;" (click)="verActividad(activida)" routerLink="/info-actividad" color="secondary">
+      <ion-button  mode="ios" style="margin-left: 75%;" (click)="verActividad(activida)" routerLink="/info-actividad" color="secondary">
         ver
       </ion-button>
     </div>

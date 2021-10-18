@@ -31,17 +31,15 @@
           displayFormat="MMMM DD, YYYY" placeholder=" MMMM DD, YYYY"></ion-datetime>
       </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked" style="font-size: 25px;">Descrpción</ion-label>
-        <ion-textarea autocapitalize="words" [(ngModel)]="newActividad.descripcion"placeholder="Que se realizara en esta actividad..."></ion-textarea>
-      </ion-item>
+    </ion-list>
 
-
-      <ion-button color="secondary" (click)="guardarActividad()">
+    <ion-label position="stacked" style="font-size: 20px; color:black;margin-left: 16px; ">Descrpción</ion-label>
+    <ion-textarea  style="background: #f0ecec; width: 90%; margin: auto; border-radius: 10px;" [(ngModel)]="newActividad.descripcion" placeholder="Que se realizara en esta actividad...." ></ion-textarea>
+    
+      <ion-button color="secondary" mode="ios"   (click)="guardarActividad()">
         Agregar
         <ion-icon slot="end" name="save"></ion-icon>
       </ion-button>
-    </ion-list>
   </ion-card>
 
 </ion-content>

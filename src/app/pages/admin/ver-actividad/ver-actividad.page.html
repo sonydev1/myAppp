@@ -6,15 +6,19 @@
   </ion-item><br>
 
   
+  <ion-button  style="    width: 104px;
+  position: absolute;
+  right: 10px;
+  top: 39px;" color="secondary" routerLink="/nueva-actividad">
+  Nueva 
+  <ion-icon slot="start" name="reader-outline"></ion-icon>
+</ion-button>
 
-  <ion-searchbar animated 
+  <ion-searchbar style="margin-top: 20px;" animated 
                 (ionChange)="buscar($event)">
   </ion-searchbar>
+
   
-  <ion-button  style="margin-top: 10px; width: 104px;" color="secondary" routerLink="/nueva-actividad">
-    Nueva 
-    <ion-icon slot="start" name="reader-outline"></ion-icon>
-  </ion-button>
     
 
   <ion-card mode="md" *ngFor="let activida of actividades | filtro: textoBuscar: 'titulo' " 
@@ -73,3 +77,4 @@
 
   
 </ion-content>
+
