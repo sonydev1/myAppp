@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Listo } from '../../models';
+import { FirestoreService } from '../../services/firestore.service';
+import { ActividadService } from '../../services/actividad.service';
+
 
 @Component({
   selector: 'app-puntos',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PuntosPage implements OnInit {
 
-  constructor() { }
+  list: Listo;
+  uid='';
+  constructor(private firestoreService: FirestoreService,
+              /* private actividadService: ActividadService, */
+              ) {}
 
   ngOnInit() {
+
+    this.getActividades();
   }
+
+
+  getActividades(){
+    const path = 'UserEstudiantes/' + this.uid + '/Realizado/'+ this.uid;
+    this.firestoreService.getDoc<Listo>(path, this.uid).subscribe(res =>{
+      this.list = res;
+          console.log(res.fecha);
+    });
+  }
+
 
 }

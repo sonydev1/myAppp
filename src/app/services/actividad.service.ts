@@ -12,7 +12,7 @@ export class ActividadService {
 
   private list: Listo;
 
-  path = 'realizado/';
+  path = 'Realizado/';
 
   uid = '';
 
@@ -21,7 +21,7 @@ export class ActividadService {
   constructor(private firebaseauthService: FirebaseauthService,
               private firestoreService: FirestoreService,
               private router: Router,
-              private toastController:ToastController,
+              private toastController: ToastController,
               private alertController: AlertController) {
 
     this.firebaseauthService.stateAuth().subscribe(res =>{
@@ -35,9 +35,11 @@ export class ActividadService {
   }
 
   loadActividad(){
-    const path = 'UserEStudiante/' + this.uid + '/Realizado';
+    const path = 'UserEstudiantes/' + this.uid + '/Realizado/';
     this.firestoreService.getDoc<Listo>(path, this.uid).subscribe(res =>{
           console.log(res);
+          console.log('ver');
+          
           if(res){
             this.list = res;
           }else{
@@ -50,7 +52,7 @@ export class ActividadService {
     this.list={
         id: this.uid,
         user: this.user,
-        activdades:[],
+        actividades:[],
         puntototal: null,
         estado: 'eviado',
         fecha: new Date(),
@@ -61,7 +63,7 @@ export class ActividadService {
 
 
   loadUSer(){
-    const path ='UserEStudiante';
+    const path ='UserEstudiantes';
     this.firestoreService.getDoc<User>(path, this.uid).subscribe(res =>{
       this.user =res;
       this.loadActividad();
@@ -75,7 +77,7 @@ export class ActividadService {
     async addActividad(activity: Actividad){
       if(this.uid.length){
 
-        const ver = this.list.activdades.find(res =>(res.id === activity.id));
+        const ver = this.list.actividades.find(res =>(res.id === activity.id));
 
         if (ver !== undefined) {
           const alert = await this.alertController.create({
@@ -84,16 +86,13 @@ export class ActividadService {
             message: 'Esta actividad ya fue enviada </br></br><b>Porfavor realizar otra actividad</b>',
             buttons: [
               {
-                text: 'Confirmar',
-                handler: () => {
-                  console.log('Confirm Okay');
-                }
+                text: 'Ok',
               }
             ]
           });
           await alert.present();
         }else{
-          this.list.activdades.push(activity);
+          this.list.actividades.push(activity);
           this.presentToast('Activiada enviada y en proceso....');
         }
     }else{
@@ -101,8 +100,9 @@ export class ActividadService {
       return;
     }
     console.log('add Actividad =>',this.list);
-    const path = 'UserEStudiante/' + this.uid + '/Realizado';
+    const path = 'UserEstudiantes/' + this.uid + '/Realizado';
     await this.firestoreService.createDoc(this.list, path, this.list.id).then(() =>{
+      console.log('add exitoso');
     });
 
   }

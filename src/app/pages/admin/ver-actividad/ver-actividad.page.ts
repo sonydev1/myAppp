@@ -15,6 +15,7 @@ export class VerActividadPage implements OnInit {
 
   newUser: User = {
     uid: '',
+    rol:  '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
@@ -22,7 +23,7 @@ export class VerActividadPage implements OnInit {
     email: '',
     telefono: 0,
     programa: '',
-    foto: '',
+    foto: '../../../../assets/perfil-defaul.png',
     puntoAcomulado: 0,
     puntoTotal: 0,
   };
@@ -40,7 +41,7 @@ uid='';
               public firebaseauthService: FirebaseauthService,
               public router: Router) {
 
-                this.firebaseauthService.stateAuth().subscribe(res =>{
+               /*  this.firebaseauthService.stateAuth().subscribe(res =>{
                   if (res === null || res === undefined) {
                     console.log('no puedo pasar');
                     this.router.navigate(['/login']);
@@ -48,7 +49,7 @@ uid='';
                     this.uid =res.uid;
                     console.log(this.uid);
                   }
-                });
+                }); */
               }
 
 

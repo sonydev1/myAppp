@@ -14,13 +14,13 @@ import { PopinfoComponent } from './popinfo/popinfo.component';
   declarations: [
     HeaderComponent,
     MenuComponent,
-    PopinfoComponent
-  ],
+    PopinfoComponent,
+    ],
   exports:[
     HeaderComponent,
     MenuComponent,
-    PopinfoComponent
-  ],
+    PopinfoComponent,
+    ],
   imports: [
     CommonModule,
     IonicModule,

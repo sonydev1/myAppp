@@ -3,11 +3,7 @@
 <ion-content>
   
   <div id="header">
-     <img src="assets/logo.png" alt=""/>
-    <h2>
-      Corporacion Universitaria <br />
-      Autonoma de Nariño
-    </h2>
+      <img src="assets/Aunar.png" alt="aunar Villavicencio"/>
   </div>
 
   <form id="from">
@@ -24,11 +20,11 @@
 
     <ion-button size="small" (click)="ingresar()" >INGRESAR</ion-button>
 
-      <p style="text-align: center;color:white;">¿He Olvidado mi contraseña?</p>
+      <p style="text-align: center;color:white;" routerLink="/reset-pass">¿He Olvidado mi contraseña?</p>
 
   </form>
 
-  <ion-item lines="none" style="margin-top: 10px;">
+  <ion-item lines="none" style="margin-top: 10px; margin-left:10%;">
     <p style="padding-right: 20px; font-size: 14px;">¿Aún no tienes una cuenta?</p>
     <ion-button  mode="ios" routerLink="/nuevo-estudiante" style="height: 38px; width: 80px; font-size: 17px;" color="danger">Registrate
     </ion-button>

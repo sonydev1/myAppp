@@ -15,6 +15,7 @@ export class EditarPerfilPage implements OnInit {
 
   newUser: User = {
     uid: '',
+    rol:  '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
@@ -33,7 +34,7 @@ export class EditarPerfilPage implements OnInit {
 
   optionSelect: string;
   tipodocu: string;
-  path = 'UserEStudiante';
+  path = 'UserEstudiantes';
   uid='';
 
   constructor(

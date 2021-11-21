@@ -24,6 +24,7 @@ export class InfoActividadPage implements OnInit {
 
   newUser: User = {
     uid: '',
+    rol:  '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
@@ -45,7 +46,7 @@ uid='';
               public router: Router,
               public actividadService: ActividadService,
               ){
-                this.firebaseauthService.stateAuth().subscribe(res =>{
+                /* this.firebaseauthService.stateAuth().subscribe(res =>{
                   if (res === null && res === undefined) {
                     console.log('no puedo ver la informacion de la actividad');
                     this.router.navigate(['/login']);
@@ -54,7 +55,7 @@ uid='';
                     console.log('el id del usuario es =>',this.uid);
                   }
                 });
-
+ */
               }
 
   ngOnInit() {

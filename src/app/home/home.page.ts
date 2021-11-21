@@ -18,6 +18,7 @@ export class HomePage implements OnInit{
 
   newUser: User = {
     uid: '',
+    rol:  '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
@@ -30,7 +31,7 @@ export class HomePage implements OnInit{
     puntoTotal: 0,
   };
 
-  path = 'UserEStudiante';
+  path = 'UserEstudiantes';
   uid='';
 
   constructor(public firebaseauthService: FirebaseauthService,
@@ -53,14 +54,13 @@ export class HomePage implements OnInit{
 
 
   async ngOnInit() {
-    const uid = await this.firebaseauthService.getUid();
   }
 
   getInfo(uid: string){
     this.firestoreService.getDoc<User>(this.path, uid).subscribe(res =>{
       this.newUser =res;
     });
-  }
+  } 
 
   async abirmenu(ev: any) {
         const popover = await this.popoverController.create({

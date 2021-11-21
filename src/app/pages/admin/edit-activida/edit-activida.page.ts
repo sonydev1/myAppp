@@ -24,6 +24,7 @@ export class EditActividaPage implements OnInit {
 
   newUser: User = {
     uid: '',
+    rol:  '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
@@ -47,13 +48,13 @@ export class EditActividaPage implements OnInit {
               public firebaseauthService: FirebaseauthService,
               public router: Router) {
 
-                this.firebaseauthService.stateAuth().subscribe(res =>{
+                /* this.firebaseauthService.stateAuth().subscribe(res =>{
                   if (res !== null) {
                     this.uid = res.uid;
                   }else{
                     this.router.navigate(['/login']);
                   }
-              });
+              }); */
             }
 
 

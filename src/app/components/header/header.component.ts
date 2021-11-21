@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
 
   newUser: User = {
     uid: '',
+    rol:  '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
@@ -27,7 +28,7 @@ export class HeaderComponent implements OnInit {
     puntoTotal: 0,
   };
 
-  path = 'UserEStudiante';
+  path = 'UserEstudiantes';
   uid='';
 
   constructor(public firebaseauthService: FirebaseauthService,

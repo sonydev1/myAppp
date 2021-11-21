@@ -1,0 +1,54 @@
+
+ion-header{
+    align-items: stretch;
+}
+
+.header {
+    margin-top: 16%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img{
+    width: 85%;
+}
+
+p{
+    margin-top: 1px;
+    font-family: Raleway;
+    font-weight: bolder;
+    font-size: 25px;
+    color: white;
+    
+}#header{
+    height: 40px;
+    width: 100%;
+    background-color: #003f75;
+    text-align: center;
+} 
+ion-input{
+    background-color: #cfcaca; 
+    border-radius: 5px;
+    
+}
+
+.env{
+    font-family: Fira Sans;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    margin-top: 15px;
+    width: 100%;
+    --background: #E4D61B;
+    border-radius: 10px;
+    height: 40px;
+}
+.lo{
+    font-size: 15px;
+    margin-left: 72%;
+}
+
+ion-card{
+    margin-top: 20%;
+}

@@ -9,7 +9,7 @@
           <ion-col size="4" class="ion-align-self-end">
             <div class="perfil">
 
-              <img [src]="newUser.foto" alt="" />
+              <img [src]="newUser.foto" alt="newUser.nombres" />
               
             </div>
           </ion-col>
@@ -26,19 +26,16 @@
     <ion-menu-toggle >
     <ion-list color="secondary" lines="none">
 
-      <ion-item detail routerLink="/nueva-actividad" calss="menu" color="secondary">
+      <ion-item detail routerLink="/nueva-actividad" calss="menu" color="secondary" *ngIf="admin">
         <ion-icon slot="start" name="calendar-number-sharp"></ion-icon> Nueva
         Actividad
       </ion-item>
 
-      <ion-item detail routerLink="/ver-actividad" calss="menu" color="secondary">
+      <ion-item detail routerLink="/ver-actividad" calss="menu" color="secondary" *ngIf="admin">
         <ion-icon slot="start"name="calendar-sharp"></ion-icon> Ver Actividades
       </ion-item>
-  
-      <ion-item detail routerLink="/nuevo-estudiante" calss="menu" color="secondary">
-        <ion-icon slot="start"name="person-add"></ion-icon>Nuevo Estudiante
-      </ion-item>
-      <ion-item detail routerLink="/listado-estudiante" calss="menu" color="secondary">
+      
+      <ion-item detail routerLink="/listado-estudiante" calss="menu" color="secondary"  *ngIf="admin">
         <ion-icon slot="start"name="list"></ion-icon>Listar Estudiantes
       </ion-item>
 

@@ -10,22 +10,30 @@
   <ion-searchbar   animated (ionChange)="buscar($event)"></ion-searchbar>
 
   <ion-card *ngFor="let us of user | filtro: textoBuscar: 'nombres'">
+    <ion-toolbar>
+      <ion-grid>
     <ion-row>
       <ion-col size="4">
-        <img class="perfil" [src]="us.foto" alt="">
+        <div class="user">
+        <img  class="perfil" [src]="us.foto" alt="us.nombres">
+      </div>
       </ion-col>
-
+    
       <ion-col >
+        
         <label class="txt">
+          
         <p class="name"><strong>{{us.nombres}}<br>{{us.apellidos}}</strong></p>
         <h5>{{us.programa}}</h5>
         <p class="per">{{us.email}}</p>
         </label>
-      <ion-button color="secondary" >
-        Ver puntos
-      </ion-button>
+        <ion-button color="secondary" >
+          Ver puntos
+        </ion-button>
       </ion-col>
     </ion-row>
+  </ion-grid>
+  </ion-toolbar>
   </ion-card>
   
 </ion-content>

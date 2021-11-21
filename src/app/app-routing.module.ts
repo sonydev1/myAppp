@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { canActivate } from '@angular/fire/compat/auth-guard';
 
-
+/* const isAdmind = (next) => map(user => !!user && 'ARVzMeAUN7bQmi0nDyqFxY07OYj1' === user.uid); */
 
 const routes: Routes = [
   {
@@ -19,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'nueva-actividad',
-    loadChildren: () => import('./pages/admin/nueva-actividad/nueva-actividad.module').then( m => m.NuevaActividadPageModule)
+    loadChildren: () => import('./pages/admin/nueva-actividad/nueva-actividad.module').then( m => m.NuevaActividadPageModule),
+    /* ...canActivate(isAdmind) */
   },
   {
     path: 'ver-actividad',
@@ -44,7 +47,8 @@ const routes: Routes = [
   {
     path: 'edit-activida',
     loadChildren: () => import('./pages/admin/edit-activida/edit-activida.module').then( m => m.EditActividaPageModule)
-  },  {
+  },
+  {
     path: 'actividad',
     loadChildren: () => import('./pages/actividad/actividad.module').then( m => m.ActividadPageModule)
   },
@@ -55,7 +59,11 @@ const routes: Routes = [
   {
     path: 'info-actividad',
     loadChildren: () => import('./pages/info-actividad/info-actividad.module').then( m => m.InfoActividadPageModule)
+  },  {
+    path: 'reset-pass',
+    loadChildren: () => import('./reset-pass/reset-pass.module').then( m => m.ResetPassPageModule)
   }
+
 
 ];
 

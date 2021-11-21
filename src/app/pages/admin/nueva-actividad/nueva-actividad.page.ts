@@ -37,7 +37,7 @@ private path = 'Actividades/';
     this.firestoreService.createDoc(this.newActividad, this.path, this.newActividad.id).then( res =>{
       this.presentToast('Guardado con exito');
       this.initActividad();
-      this.roter.navigate(['/ver-actividad']);
+      /* this.roter.navigate(['/ver-actividad']); */
     }).catch(error =>{
       this.presentToast('NO se pudo guardar');
     });

@@ -11,6 +11,7 @@ export interface Actividad{
 
 export interface User {
   uid: string;
+  rol: string;
   nombres: string;
   apellidos: string;
   tipoDocumento: string;
@@ -26,7 +27,7 @@ export interface User {
 export interface Listo {
   id: string;
   user: User;
-  activdades: Actividad [];
+  actividades: Actividad [];
   puntototal: number;
   estado: EstadoActividad;
   fecha: Date;

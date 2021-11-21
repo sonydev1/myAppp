@@ -1,0 +1,37 @@
+
+<ion-content >
+  <div id="header">
+    <p>Restableser Contraseña</p>
+  </div>
+
+
+  <div class="header">
+      <img src="assets/Aunar.png" alt="aunar Villavicencio"/>
+  </div>
+
+
+<ion-card color="secondary">
+<div style="padding-top: 10%; text-align: center; width: 75%; height: 14%; margin: auto;">
+    <ion-label style="color:#FFFFFF; font-size: x-large;">para poder restableser tu contraseña debe ingresar su <strong>Email</strong></ion-label>
+</div>
+    <div class="ion-padding" color="secondary">
+        <ion-item lines="none" style=" padding: 5px; " color="secondary">
+          <ion-label position="stacked" style="font-size: 20px;">Email</ion-label>
+          <ion-input type="text" [(ngModel)]="email" style="font-size: 14px; padding: 10px; height: 80px; margin-top: 10px; color:#000" ></ion-input>
+          
+          <ion-button size="small" class="env" (click)="resertLink()" >ENVIAR</ion-button>
+        </ion-item>
+
+    </div>
+</ion-card>
+
+    <div style="margin-top: 20px;">
+      <ion-button  class="lo" color="secondary" routerLink="/login" >
+        Login
+        <ion-icon slot="start" name="enter"></ion-icon>
+      </ion-button>
+  </div>
+  
+  
+
+</ion-content>

@@ -12,7 +12,7 @@ export class ListadoEstudiantePage implements OnInit {
   user: User[]=[];
   textoBuscar= '';
 
-  private path = 'UserEStudiante/';
+  private path = 'UserEstudiantes/';
   constructor(public firestoreService: FirestoreService) { }
 
   ngOnInit() {

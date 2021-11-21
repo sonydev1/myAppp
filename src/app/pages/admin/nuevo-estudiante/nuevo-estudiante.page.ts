@@ -5,6 +5,7 @@ import { FirebaseauthService } from 'src/app/services/firebaseauth.service';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from '../../../services/firestore.service';
 import { Router } from '@angular/router';
+import { redirectLoggedInTo } from '@angular/fire/compat/auth-guard';
 
 @Component({
   selector: 'app-nuevo-estudiante',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 export class NuevoEstudiantePage implements OnInit {
   newUser: User = {
     uid: '',
+    rol:  'estudiante',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
@@ -22,8 +24,8 @@ export class NuevoEstudiantePage implements OnInit {
     telefono: null,
     programa: '',
     foto: '../../../../assets/perfil-defaul.png',
-    puntoAcomulado: 0,
-    puntoTotal: 0,
+    puntoAcomulado: null,
+    puntoTotal: null,
   };
 
 
@@ -32,7 +34,7 @@ export class NuevoEstudiantePage implements OnInit {
 
   optionSelect: string;
   tipodocu: string;
-  path = 'UserEStudiante';
+  path = 'UserEstudiantes';
 
   constructor(private firestorageService: FirestorageService,
     private firebaseauthService: FirebaseauthService,
@@ -65,21 +67,35 @@ export class NuevoEstudiantePage implements OnInit {
   }
 
   async registrarse() {
-    if(this.guardarUser === this.initUser){
+      const campos={
+        nombres: this.newUser.nombres,
+        apellidos: this.newUser.apellidos,
+        tipoDocumento: this.newUser.tipoDocumento,
+        telefono: this.newUser.telefono,
+        programa: this.newUser.programa,
+      };
 
-      this.presentToast('error al registrase');
+      if(campos.nombres === '' && campos.apellidos === '' &&
+      campos.tipoDocumento === '' && campos.telefono === null && campos.programa === '' ){
+        console.log('campos crv');
+        this.presentToast2('Error al registrase, llenar campos vacío.');
     }else{
     const credenciales = {
       email: this.newUser.email,
       password: this.newUser.ndocumento,
     };
-    const res = await this.firebaseauthService.resgirtrar(credenciales.email, credenciales.password);
-    console.log(res);
-    const uid = await this.firebaseauthService.getUid();
-    this.newUser.uid = uid;
-      this.guardarUser();
-      console.log(uid);
-  }
+    if(credenciales.email === '' && credenciales.password === ''){
+      this.presentToast('error al registrase llenar campos');
+    }else{
+
+      const res = await this.firebaseauthService.resgirtrar(credenciales.email, credenciales.password);
+      console.log(res);
+      const uid = await this.firebaseauthService.getUid();
+      this.newUser.uid = uid;
+        this.guardarUser();
+        console.log(uid);
+    }
+    }
   }
 
   async guardarUser() {
@@ -115,17 +131,18 @@ export class NuevoEstudiantePage implements OnInit {
 
   initUser(){
     this.newUser ={
-      uid: '',
+    uid: '',
+    rol:  '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
     ndocumento: '',
     email: '',
-    telefono: 0,
+    telefono: null,
     programa: '',
-    foto: '../../../../assets/perfil-defaul.png',
-    puntoAcomulado: 0,
-    puntoTotal: 0,
+    foto: '',
+    puntoAcomulado: null,
+    puntoTotal: null,
   };
   }
 
@@ -133,7 +150,17 @@ export class NuevoEstudiantePage implements OnInit {
     const toast = await this.toastController.create({
       message: msg,
       duration: 2000,
-      color:'secondary',
+      color:'success',
+    });
+    toast.present();
+  }
+
+  async presentToast2(msg: string) {
+    const toast = await this.toastController.create({
+      
+      message: msg,
+      duration: 1000,
+      color:'danger',
     });
     toast.present();
   }

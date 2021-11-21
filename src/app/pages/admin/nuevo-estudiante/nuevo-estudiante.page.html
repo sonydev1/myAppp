@@ -37,7 +37,7 @@
       
         <ion-item >
           <ion-label position="start" >Tipo Documento</ion-label>
-          <ion-select (ionChange)="valordocumento($event)" okText="Aceptar"placeholder="ipo">
+          <ion-select (ionChange)="valordocumento($event)" okText="Aceptar"placeholder="tipo documeto">
             <ion-select-option value="C.C"><strong>C.C</strong></ion-select-option>
             <ion-select-option value="T.I"><strong>T.I</strong></ion-select-option>
             <ion-select-option value="C.E"><strong>C.E</strong></ion-select-option>
@@ -46,7 +46,7 @@
         </ion-item>
     
         <ion-item lines="none" style=" padding: 5px; ">
-          <ion-label position="fixed">Numero doc</ion-label>
+          <ion-label position="fixed">N° documeto</ion-label>
           <ion-input [(ngModel)]="newUser.ndocumento" style="font-size: 14px;" type="number"></ion-input>
         </ion-item>
       
@@ -63,7 +63,7 @@
     </ion-item>
     <ion-item >
             <ion-label >Programa</ion-label>
-            <ion-select (ionChange)="valorprograma($event)" okText="Aceptar"  placeholder="ipo">
+            <ion-select (ionChange)="valorprograma($event)" okText="Aceptar"  placeholder="Elige un Programa">
               <ion-select-option value=" Contaduría Pública  ">Contaduría Pública</ion-select-option>
               <ion-select-option value=" Administración De Empresas ">Administración De Empresas</ion-select-option>
               <ion-select-option value=" Seguridad y Salud en el Trabajo ">Seguridad y Salud en el Trabajo</ion-select-option>

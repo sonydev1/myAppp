@@ -39,4 +39,9 @@ export class FirebaseauthService {
   stateAuth(){
     return this.auth.authState;
   }
+
+
+  resetPassword(email: string){
+    return this.auth.sendPasswordResetEmail(email);
+  }
 }

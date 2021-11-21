@@ -15,6 +15,7 @@ export class ActividadPage implements OnInit {
 
   newUser: User = {
     uid: '',
+    rol:  '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
@@ -22,7 +23,7 @@ export class ActividadPage implements OnInit {
     email: '',
     telefono: 0,
     programa: '',
-    foto: '',
+    foto: '../../../../assets/perfil-defaul.png',
     puntoAcomulado: 0,
     puntoTotal: 0,
   };

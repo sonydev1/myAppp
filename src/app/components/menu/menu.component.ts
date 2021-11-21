@@ -8,10 +8,11 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent  {
 
   newUser: User = {
     uid: '',
+    rol:  '',
     nombres: '',
     apellidos: '',
     tipoDocumento: '',
@@ -24,8 +25,10 @@ export class MenuComponent implements OnInit {
     puntoTotal: 0,
   };
 
-  path = 'UserEStudiante';
+  path = 'UserEstudiantes';
   uid='';
+
+  admin = false;
 
   constructor(public firebaseauthService: FirebaseauthService,
               public firestoreService: FirestoreService,
@@ -40,13 +43,6 @@ export class MenuComponent implements OnInit {
               }
 
 
-
-
-  async ngOnInit() {
-    const uid = await this.firebaseauthService.getUid();
-  }
-
-
   salir(){
     this.firebaseauthService.logout();
     this.router.navigate(['/login']);
@@ -55,7 +51,19 @@ export class MenuComponent implements OnInit {
   getInfo(uid: string){
     this.firestoreService.getDoc<User>(this.path, uid).subscribe(res =>{
       this.newUser =res;
+      console.log('el rol es '+res.rol);
+      if(res !== null){
+        if(res.rol === 'estudiante'){
+          this.admin = true;
+        }else{
+          this.admin = false;
+        }
+      }else{
+        this.admin = false;
+        this.router.navigate(['/login']);
+      }
     });
   }
+
 
 }

@@ -6,16 +6,16 @@ import { Actividad } from '../models';
 })
 export class PageInfoService {
 
-   editActividad: Actividad;
+  editActividad: Actividad;
 
   constructor() { }
 
- setActividad(acti: Actividad ){
+setActividad(acti: Actividad ){
   this.editActividad =acti;
- }
+}
 
- getActividad(){
+getActividad(){
   return this.editActividad;
- }
+}
 
 }
