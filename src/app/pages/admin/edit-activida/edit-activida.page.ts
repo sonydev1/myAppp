@@ -19,7 +19,9 @@ export class EditActividaPage implements OnInit {
     punto:0,
     actividadI:null,
     actividadF:null,
-    descripcion:''
+    descripcion:'',
+    periodo: '',
+    estado:'enviado'
   };
 
   newUser: User = {

@@ -1,80 +1,71 @@
 <app-header></app-header>
 
 <ion-content>
-  <ion-item color="secondary" lines="none">
-    <p>Actividades</p>
-  </ion-item><br>
+  <div id="sub-header">
+    <div class="contsub-header">
+      Actividades
+    </div>
+  </div>
 
-  
-  <ion-button  style="    width: 104px;
-  position: absolute;
-  right: 10px;
-  top: 39px;" color="secondary" routerLink="/nueva-actividad">
-  Nueva 
-  <ion-icon slot="start" name="reader-outline"></ion-icon>
-</ion-button>
+  <div class="content-create">
+    <ion-button routerLink="/nueva-actividad">Crear una nueva</ion-button>
+  </div>
+  <ion-searchbar animated (ionChange)="buscar($event)" placeholder="Buscar"></ion-searchbar>
 
-  <ion-searchbar style="margin-top: 20px;" animated 
-                (ionChange)="buscar($event)">
-  </ion-searchbar>
-
-  
-    
-
-  <ion-card mode="md" *ngFor="let activida of actividades | filtro: textoBuscar: 'titulo' " 
-  
->
+  <ion-card mode="md" *ngFor="let activida of actividades | filtro: textoBuscar: 'titulo' ">
     <ion-card-header>
       <ion-card-subtitle>{{activida.titulo}}</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
       <ion-row mode="ios">
-        <ion-col size="4" class="ion-align-self-start">
-          <ion-card  id="pnt" color="secondary">
-            <ion-label><b>Puntos</b></ion-label><br>
-            <strong style="font-size: 25px;">{{activida.punto}}</strong>
+        <ion-col size="4">
+          <ion-card class="items-puntos">
+            <ion-label class="item-title">Puntos</ion-label>
+            <div class="content-mes">
+              <div class="cont-mes">
+                <strong>{{activida.punto}}</strong>
+              </div>
+            </div>
           </ion-card>
         </ion-col>
 
         <ion-col size="4">
-          <ion-card   id="mes" style="background-color: #ddddddbb">
-            <ion-label style="width: 100px; height: 25px">
-              <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
-                {{activida.actividadI | date:'MMMM'}}
-              </p>
-            </ion-label>
-            <strong style="color: black; font-size: 25px; font-weight: bold;">{{activida.actividadI |date:'dd'}}</strong>
+          <ion-card class="items-mesi">
+            <ion-label class="item-title">Inicia</ion-label>
+            <div class="content-mes">
+              <div class="cont-mes">
+                <ion-label>{{activida.actividadI | date:'dd'}}</ion-label>
+                <strong>/{{activida.actividadI | date:'MM'}}</strong>
+              </div>
+            </div>
           </ion-card>
         </ion-col>
 
-        <ion-col size="4" class="ion-align-items-end">
-          <ion-card  id="mes" style="background-color: #ddddddbb">
-            <ion-label style="width: 100px; height: 25px; ">
-              <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
-                {{activida.actividadF | date:'MMMM'}}
-              </p>
-            </ion-label>
-            <strong style="margin:auto; color: black; font-size: 25px; font-weight: bold;">{{activida.actividadF |
-              date:'dd'}}</strong>
+        <ion-col size="4">
+          <ion-card class="items-mesf">
+            <ion-label class="item-title">Finaliza</ion-label>
+            <div class="content-mes">
+              <div class="cont-mes">
+                <ion-label>{{activida.actividadF | date:'dd'}}</ion-label>
+                <strong>/{{activida.actividadF | date:'MM'}}</strong>
+              </div>
+            </div>
           </ion-card>
         </ion-col>
       </ion-row>
 
-    
-      <div  >
-      <ion-button style="margin-left: 26%;"  color="secondary" (click)="editActividad(activida)" routerLink="/edit-activida">
-        <ion-icon  name="create-sharp"></ion-icon>
-      </ion-button>
 
-      <ion-button style="margin-left: 20%;" color="danger" (click)="deleteActividad(activida)">
-        <ion-icon  name="trash"></ion-icon>
-      </ion-button>
-    </div>
+
+      <div class="content-button">
+        <ion-button mode="ios" (click)="editActividad(activida)" routerLink="/edit-activida">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button mode="ios" color="danger" (click)="deleteActividad(activida)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </div>
 
     </ion-card-content>
   </ion-card>
-
-  
 </ion-content>
-

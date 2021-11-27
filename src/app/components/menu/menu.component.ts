@@ -53,7 +53,7 @@ export class MenuComponent  {
       this.newUser =res;
       console.log('el rol es '+res.rol);
       if(res !== null){
-        if(res.rol === 'estudiante'){
+        if(res.rol === 'admin'){
           this.admin = true;
         }else{
           this.admin = false;

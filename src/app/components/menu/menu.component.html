@@ -1,66 +1,51 @@
 
 
 
-<ion-menu side="start" menuId="PrimerMenu"  contentId="main">
+<ion-menu side="start" menuId="PrimerMenu" contentId="main">
   <ion-header class="ion-no-border" >
     <ion-toolbar>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="4" class="ion-align-self-end">
-            <div class="perfil">
-
-              <img [src]="newUser.foto" alt="newUser.nombres" />
-              
-            </div>
-          </ion-col>
-          <ion-col  style="margin: auto;" >
-            <strong>Hola,</strong><br/>
-            <ion-label style="color: white;">{{newUser.nombres}}</ion-label>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <div class="content-aside">
+          <img [src]="newUser.foto" alt="newUser.nombres" />
+          <div class="aside-names">
+            <strong>{{newUser.nombres}}</strong>
+          </div>
+      </div>
     </ion-toolbar>
   </ion-header>
   <ion-content>
 
-    <ion-menu-toggle >
-    <ion-list color="secondary" lines="none">
+  <ion-menu-toggle>
+    <ion-list lines="none">
 
-      <ion-item detail routerLink="/nueva-actividad" calss="menu" color="secondary" *ngIf="admin">
-        <ion-icon slot="start" name="calendar-number-sharp"></ion-icon> Nueva
-        Actividad
+      <ion-item  lines="none" detail routerLink="/editar-perfil">
+        <ion-icon slot="start" name="person"></ion-icon>Editar perfil
+      </ion-item>
+      <ion-item detail routerLink="/nueva-actividad" *ngIf="admin">
+        <ion-icon slot="start" name="calendar-number-sharp"></ion-icon> Nueva actividad
       </ion-item>
 
-      <ion-item detail routerLink="/ver-actividad" calss="menu" color="secondary" *ngIf="admin">
-        <ion-icon slot="start"name="calendar-sharp"></ion-icon> Ver Actividades
+      <ion-item detail routerLink="/ver-actividad" *ngIf="admin">
+        <ion-icon slot="start"name="calendar-sharp"></ion-icon> Ver actividades
       </ion-item>
       
-      <ion-item detail routerLink="/listado-estudiante" calss="menu" color="secondary"  *ngIf="admin">
-        <ion-icon slot="start"name="list"></ion-icon>Listar Estudiantes
+      <ion-item detail routerLink="/listado-estudiante"  *ngIf="admin">
+        <ion-icon slot="start"name="list"></ion-icon>Listar estudiantes
       </ion-item>
 
-      <ion-item detail routerLink="/actividad" calss="menu" color="secondary">
+      <ion-item detail routerLink="/actividad">
         <ion-icon slot="start"name="calendar-sharp"></ion-icon> Actividades
       </ion-item>
 
-      <ion-item detail routerLink="/puntos" calss="menu" color="secondary">
-        <ion-icon slot="start" name="checkbox"></ion-icon>Resultado de Puntos
+      <ion-item detail routerLink="/puntos">
+        <ion-icon slot="start" name="checkbox"></ion-icon>Resultado de puntos
       </ion-item>
-
+      <ion-item   lines="none" (click)="salir()">
+        <ion-icon slot="start" name="log-out" (click)="salir()"></ion-icon>Cerrar sesión
+      </ion-item>
     </ion-list>
   </ion-menu-toggle>
-  </ion-content>
-  <ion-footer colo="secondary" >
-    <ion-toolbar>
-    <ion-item  lines="none" detail routerLink="/editar-perfil" calss="menu" color="secondary">
-      <ion-icon slot="start" name="person"></ion-icon>Editar perfil
-    </ion-item>
+</ion-content>
 
-    <ion-item   lines="none" calss="menu" color="secondary" (click)="salir()">
-      <ion-icon slot="start"name="log-out" (click)="salir()"></ion-icon>Cerar Sesión
-    </ion-item>
-  </ion-toolbar>
-  </ion-footer>
 </ion-menu>
 <ion-router-outlet id="main"></ion-router-outlet>
 

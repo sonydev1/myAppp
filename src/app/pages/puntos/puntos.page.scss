@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 
 ion-content{
-    --background: rgb(255 251 251 / 64%);
+    --background: rgba(187, 187, 187, 0.644);
 }
 
 ion-item {
@@ -26,4 +26,43 @@ h1{
     font-size: 40px;
     font-weight: bold;
     color: black;
+}
+
+
+
+
+
+
+
+ion-col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+#pnt{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    margin-left: 20px;
+}
+strong{
+    font-size: 20px;
+    margin-right: 6px;
+}
+
+#mes{
+    width: 70px;
+    height: 60px;
+    text-align: center;
+    align-items: center;
+    
+}
+
+ion-card-header{
+    text-align: center;
+}
+ion-card-subtitle{
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
 }

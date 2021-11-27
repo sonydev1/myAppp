@@ -1,54 +1,81 @@
+ion-content {
 
-ion-header{
-    align-items: stretch;
-}
+    #header {
+        margin-top: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        img{
+            width: 85%;
+        }    
+    }
 
-.header {
-    margin-top: 16%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    #content-reset {
+        display: flex;
+        --background: #f3f3f3;
+        width: 100%;
+        color: #000;
+        font-size: 14px;
+        .left-reset {
+          margin-left: auto;
+          margin-right: 5px;
+        }
+        .item-reset {
+          margin-right: auto;
+          color: #2e3191;
+        }
+        .item-reset:hover{
+          text-decoration: underline;
+        }
+    }
 
-img{
-    width: 85%;
-}
+    #from {
+        padding: 15px;
+        background: #fff;
+        width: 90%;
+        border-radius: 12px;
+        margin: auto;
+        
+        .item-reset {
+            color: #2e3191;
+            font-size: 14px;
+            text-align: center;
+        }
 
-p{
-    margin-top: 1px;
-    font-family: Raleway;
-    font-weight: bolder;
-    font-size: 25px;
-    color: white;
-    
-}#header{
-    height: 40px;
-    width: 100%;
-    background-color: #003f75;
-    text-align: center;
-} 
-ion-input{
-    background-color: #cfcaca; 
-    border-radius: 5px;
-    
-}
+        h1 {
+            font-family: "Fira Sans";
+            font-weight: bold;
+            text-align: center;
+            font-size: 21px;
+            color: #000;
+            margin-top: 15px;
+        }
 
-.env{
-    font-family: Fira Sans;
-    font-weight: bold;
-    font-size: 20px;
-    color: black;
-    margin-top: 15px;
-    width: 100%;
-    --background: #E4D61B;
-    border-radius: 10px;
-    height: 40px;
-}
-.lo{
-    font-size: 15px;
-    margin-left: 72%;
-}
+        ion-item {
+            --background: #f3f3f3;
+            margin-top: 15px;
+            border-radius: 12px;
+            font-family: "Raleway", sans-serif;
+            font-size: 14px;
+        }
+        ion-input {
+            color: #000;
+        }
+        ion-icon {
+            color: #a3a1a1;
+            margin-right: 15px;
+        }
 
-ion-card{
-    margin-top: 20%;
+        ion-button{
+            --background: #2e3191;
+            font-family: Fira Sans;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 15px;
+            width: 100%;
+            height: 35px;
+            border-radius: 4px;
+        }
+    }
 }

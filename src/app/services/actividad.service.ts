@@ -35,11 +35,9 @@ export class ActividadService {
   }
 
   loadActividad(){
-    const path = 'UserEstudiantes/' + this.uid + '/Realizado/';
+    const path = 'UserEstudiantes/' + this.uid + '/Realizado';
     this.firestoreService.getDoc<Listo>(path, this.uid).subscribe(res =>{
-          console.log(res);
-          console.log('ver');
-          
+          console.log('listos si se muetras');
           if(res){
             this.list = res;
           }else{
@@ -54,7 +52,7 @@ export class ActividadService {
         user: this.user,
         actividades:[],
         puntototal: null,
-        estado: 'eviado',
+        estado: 'enviado',
         fecha: new Date(),
     };
 
@@ -102,14 +100,11 @@ export class ActividadService {
     console.log('add Actividad =>',this.list);
     const path = 'UserEstudiantes/' + this.uid + '/Realizado';
     await this.firestoreService.createDoc(this.list, path, this.list.id).then(() =>{
-      console.log('add exitoso');
+      console.log('añadido con exito en Realizado');
     });
 
   }
 
-  realizado(){
-
-  }
 
 async presentToast(msg: string) {
     const toast = await this.toastController.create({

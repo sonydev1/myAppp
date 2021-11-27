@@ -1,57 +1,63 @@
 <app-header></app-header>
 
-<ion-content>  
-  
-  <ion-item color="secondary" lines="none">
-    <p>Actividad</p>
-  </ion-item><br>
 
+<ion-content>
+  <div id="sub-header">
+    <div class="contsub-header">
+      {{newActividad.titulo}}
+    </div>
+  </div>
 
-  <ion-card mode="md" style="background-color: #e7e5e5">
-    <ion-card-header>
-      <ion-card-subtitle>{{newActividad.titulo}}</ion-card-subtitle>
-    </ion-card-header>
-
+  <ion-card mode="md">
     <ion-card-content>
       <ion-row mode="ios">
-        <ion-col size="4" class="ion-align-self-start">
-          <ion-card  id="pnt" color="secondary">
-            <ion-label><b>Puntos</b></ion-label><br>
-            <strong style="font-size: 25px;">{{newActividad.punto}}</strong>
+        <ion-col size="4">
+          <ion-card class="items-puntos">
+            <ion-label class="item-title">Puntos</ion-label>
+            <div class="content-mes">
+              <div class="cont-mes">
+                <strong>{{newActividad.punto}}</strong>
+              </div>
+            </div>
           </ion-card>
         </ion-col>
 
         <ion-col size="4">
-          <ion-card   id="mes" style="background-color: #e7e5e5">
-            <ion-label style="width: 100px; height: 25px">
-              <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
-                {{newActividad.actividadI | date:'MMMM'}}
-              </p>
-            </ion-label>
-            <strong style="color: black; font-size: 25px; font-weight: bold;">{{newActividad.actividadI |date:'dd'}}</strong>
+          <ion-card class="items-mesi">
+            <ion-label class="item-title">Inicia</ion-label>
+            <div class="content-mes">
+              <div class="cont-mes">
+                <ion-label>{{newActividad.actividadI | date:'dd'}}</ion-label>
+                <strong>/{{newActividad.actividadI | date:'MM'}}</strong>
+              </div>
+            </div>
           </ion-card>
         </ion-col>
 
-        <ion-col size="4" class="ion-align-items-end">
-          <ion-card  id="mes" style="background-color: #e7e5e5">
-            <ion-label style="width: 100px; height: 25px; ">
-              <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
-                {{newActividad.actividadF | date:'MMMM'}}
-              </p>
-            </ion-label>
-            <strong style="margin:auto; color: black; font-size: 25px; font-weight: bold;">{{newActividad.actividadF |
-              date:'dd'}}</strong>
+        <ion-col size="4">
+          <ion-card class="items-mesf">
+            <ion-label class="item-title">Finaliza</ion-label>
+            <div class="content-mes">
+              <div class="cont-mes">
+                <ion-label>{{newActividad.actividadF | date:'dd'}}</ion-label>
+                <strong>/{{newActividad.actividadF | date:'MM'}}</strong>
+              </div>
+            </div>
           </ion-card>
         </ion-col>
       </ion-row>
-      <ion-card-content style="background-color: rgba(187, 187, 187, 0.644); color: black; border-radius: 15px;">
-        <p style="font-size: 15px;">{{newActividad.descripcion}}</p>
+
+
+      <ion-card-content class="content-description">
+        <p>{{newActividad.descripcion}}</p>
       </ion-card-content>
+
+      <div class="content-button">
+        <ion-button mode="ios" (click)="addActi()">
+          Realizar
+        </ion-button>
+      </div>
+
     </ion-card-content>
-    <ion-button mode="ios" color="secondary" style="margin-left: 66%; margin-bottom: 10px;" (click)="addActi()">
-      Realizar
-    </ion-button>
   </ion-card>
-
-
 </ion-content>

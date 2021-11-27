@@ -1,71 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
+ion-content {
+    ion-card {
+        ion-grid {
+            background: #fff;
+        }
+        width: 90%;
+        margin: auto;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    ion-button{
+        --background: #2e3191;
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 15px;
+        border-radius: 4px;
+        margin: auto;
+        width: 100%;
+    }
+    ion-searchbar {
+        --background: #fff;
+        --border-radius: 4px;
+        width: 94%;
+        margin: auto;
+    }
+    ion-col {
+        margin: auto;
+    }
 
-ion-content{
-    --background: rgba(187, 187, 187, 0.644);
-}
-img{
-    margin-top: 5px;
-    width: 50px;
-    height: 50px;
-}
-ion-header{
-    align-items: stretch;
-}
-ion-item {
-    height: 40px;
-    width: 100%;
-}
-p{
-    margin-top: 1px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: Raleway;
-    font-weight: bold;
-    font-size: 25px;
-    
-}
-
-.perfil{
-    border-radius: 100% ;
-    width: 100px;
-    height: 100px; 
-} 
-
-.user{
-    margin-top: 10px;
-    border-radius: 100%;
-    width: 100% ;
-}
-
-.name{
-    font-size: 19px;
-    font-weight: 600px;
-    font-family: 'Roboto', sans-serif;
-    color: black;
-    display: block;
-    margin-bottom: 1px !important;
-}
-.per{
-    font-size: 10px;
-    width: 145px;
-    margin: inherit;font-size: 10px;
-    width: 145px;
-    margin: inherit;
-}
-h5{
-    margin-top: 5px !important;
-    font-size:12px;
-    font-weight: lighter;
-    display: block;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-ion-button{
-    margin-top:6px;
-    margin-left: 53%; 
-    height: 25px;
-    width: 105px;
+    .content-photo img {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        margin: auto;
+    }
+    ion-label {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .content-info p {
+        font-size: 14px;
+        margin: 5px 0 0 0;
+    }
 }
 

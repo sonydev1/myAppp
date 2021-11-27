@@ -142,7 +142,7 @@ export class NuevoEstudiantePage implements OnInit {
     programa: '',
     foto: '',
     puntoAcomulado: null,
-    puntoTotal: null,
+    puntoTotal: null
   };
   }
 

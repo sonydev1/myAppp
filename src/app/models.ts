@@ -6,6 +6,8 @@ export interface Actividad{
     actividadI: Date;
     actividadF: Date;
     descripcion: string;
+    periodo: string;
+    estado: EstadoActividad;
 }
 
 
@@ -33,4 +35,4 @@ export interface Listo {
   fecha: Date;
 }
 
-export type EstadoActividad= 'listo' |  'eviado';
+export type EstadoActividad= 'listo' |  'enviado';

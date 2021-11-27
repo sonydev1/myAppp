@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Listo } from '../../models';
+import { Listo, User } from '../../models';
 import { FirestoreService } from '../../services/firestore.service';
 import { ActividadService } from '../../services/actividad.service';
+import { FirebaseauthService } from '../../services/firebaseauth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,25 +13,67 @@ import { ActividadService } from '../../services/actividad.service';
 })
 export class PuntosPage implements OnInit {
 
-  list: Listo;
+
+  listo: Listo;
+  path = 'UserEstudiantes/';
   uid='';
+  user: User;
+  data =[];
+  totalPunto: number;
+  periodo: string;
+  vperiodo: string;
+
   constructor(private firestoreService: FirestoreService,
-              /* private actividadService: ActividadService, */
-              ) {}
+              private firebaseauthService: FirebaseauthService,
+              public router: Router,
+              private actividadService: ActividadService,
+              ) {
+                this.estatu();
+                this.loadActividad();
+              }
 
-  ngOnInit() {
+  ngOnInit() {}
 
-    this.getActividades();
-  }
+estatu(){
+  this.firebaseauthService.stateAuth().subscribe(res =>{
+    if (res === null || res === undefined) {
+      console.log('no puedo pasar');
+      this.router.navigate(['/login']);
+    }else{
+      this.uid =res.uid;
+      console.log('ok');
+    }
+  });
+}
 
 
-  getActividades(){
-    const path = 'UserEstudiantes/' + this.uid + '/Realizado/'+ this.uid;
-    this.firestoreService.getDoc<Listo>(path, this.uid).subscribe(res =>{
-      this.list = res;
-          console.log(res.fecha);
+
+loadActividad(){
+  this.firebaseauthService.stateAuth().subscribe(res =>{
+    if (res === null || res === undefined) {
+      console.log('no puedo pasar');
+      this.router.navigate(['/login']);
+    }else{
+      this.uid =res.uid;
+      const path = 'UserEstudiantes/' + res.uid + '/Realizado';
+      this.firestoreService.getDoc<Listo>(path, res.uid).subscribe(rest =>{
+        this.data = Object.values(rest.actividades);
+        console.log('actividades =>',this.data.length);
+        rest.actividades.forEach(peri=>{
+          console.log(peri.periodo);
+          this.periodo = peri.periodo;
+        });
+
+        this.totalPunto= 0;
+        rest.actividades.forEach(punt =>{
+            this.totalPunto = (punt.punto) + this.totalPunto ;
+          console.log(this.totalPunto);
+        });
     });
-  }
+    }
+  });
+}
 
 
 }
+

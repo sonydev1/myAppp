@@ -21,7 +21,9 @@ export class NuevaActividadPage implements OnInit {
     punto:0,
     actividadI:null,
     actividadF:null,
-    descripcion: ''
+    descripcion: '',
+    periodo: '',
+    estado: 'enviado'
   };
 
 private path = 'Actividades/';
@@ -37,7 +39,7 @@ private path = 'Actividades/';
     this.firestoreService.createDoc(this.newActividad, this.path, this.newActividad.id).then( res =>{
       this.presentToast('Guardado con exito');
       this.initActividad();
-      /* this.roter.navigate(['/ver-actividad']); */
+      this.roter.navigate(['home']);
     }).catch(error =>{
       this.presentToast('NO se pudo guardar');
     });
@@ -62,7 +64,9 @@ private path = 'Actividades/';
       punto:0,
       actividadI:null,
       actividadF: null,
-      descripcion: ''
+      descripcion: '',
+      periodo: '',
+      estado:'enviado'
     };
   }
 

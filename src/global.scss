@@ -41,9 +41,135 @@
     height: 190px;
 }
 
-
 normalidad{
     text-align: center;
     font-size: medium;
     color: black;
+}
+
+#profile-photo {
+
+    ion-avatar{
+      display: flex;
+      position: relative;
+    }
+    ion-avatar:before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      margin: 0.3rem;
+      border-width: 0.2rem;
+      border-style: solid;
+      border-radius: 50%;
+      border-color: #adadb8;
+    }
+    ion-avatar:after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      margin: 0.3rem;
+      border-style: solid;
+      border-radius: 50%;
+      border-color: #2e3191;
+      animation: rotate-circle;
+      animation-duration: 1s;
+      animation-iteration-count: 4;
+    }
+    ion-avatar img {
+      width: 65%;
+      height: 65%;
+      margin: auto;
+    }
+  
+    @keyframes rotate-circle {
+      0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%, 50%, 55%, 60%, 65%, 70%, 75%, 80%, 85%, 90%, 95% {
+        border-left: 0.2rem;
+        border-top: 0.2rem;
+        border-bottom: 0.2rem;
+      }
+      0% {
+        transform: rotate(10deg);
+      }
+      5%{
+        transform: rotate(20deg);
+      }
+      10%{
+        transform: rotate(40deg);
+      }
+      15%{
+        transform: rotate(60deg);
+      }
+      20%{
+        transform: rotate(80deg);
+        border-color: #fee832;
+      }
+      25%{
+        transform: rotate(100deg);
+        border-color: #2e3191;
+      }
+      30%{
+        transform: rotate(120deg);
+      }
+      35%{
+        transform: rotate(140deg);
+      }
+      40%{
+        transform: rotate(160deg);
+      }
+      45%{
+        transform: rotate(180deg);
+      }
+      50%{
+        transform: rotate(200deg);
+        border-color: #fee832;
+      }
+      55%{
+        transform: rotate(220deg);
+        border-color: #2e3191;
+      }
+      60%{
+        transform: rotate(240deg);
+      }
+      65%{
+        transform: rotate(260deg);
+      }
+      70%{
+        transform: rotate(280deg);
+      }
+      75%{
+        transform: rotate(300deg);
+      }
+      80%{
+        transform: rotate(320deg);
+        border-color: #fee832;
+      }
+      85%{
+        transform: rotate(340deg);
+        border-color: #2e3191;
+      }
+      100%{
+        transform: rotate(359deg);
+      }
+    }
+}
+
+#sub-header{
+    display: flex;
+    height: 40px;
+    background-color: #2e3191;
+    text-align: center;
+    width: 100%;
+    .contsub-header {
+        font-size: 17px;
+        font-weight: bold;
+        margin: auto;
+        color: #fff;
+    }
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

@@ -20,6 +20,8 @@ export class InfoActividadPage implements OnInit {
     actividadI: null,
     actividadF: null,
     descripcion: '',
+    periodo: '',
+    estado:'enviado'
   };
 
   newUser: User = {
@@ -46,7 +48,7 @@ uid='';
               public router: Router,
               public actividadService: ActividadService,
               ){
-                /* this.firebaseauthService.stateAuth().subscribe(res =>{
+                this.firebaseauthService.stateAuth().subscribe(res =>{
                   if (res === null && res === undefined) {
                     console.log('no puedo ver la informacion de la actividad');
                     this.router.navigate(['/login']);
@@ -55,7 +57,6 @@ uid='';
                     console.log('el id del usuario es =>',this.uid);
                   }
                 });
- */
               }
 
   ngOnInit() {
@@ -66,10 +67,10 @@ uid='';
   }
 
   addActi(){
-    this.actividadService.addActividad(this.newActividad);
+    /* this.actividadService.addActividad(this.newActividad);
     this.router.navigate(['/actividad']);
+ */
+    console.log('la actividad es =>',this.edit.getActividad(),'y el usuario es =>', this.firebaseauthService.getUid);
 
   }
-
-
 }

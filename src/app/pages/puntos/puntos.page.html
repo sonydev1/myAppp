@@ -4,13 +4,63 @@
   <ion-item color="secondary" lines="none">
     <p>Resultado de Puntos</p>
   </ion-item><br>
+<ion-list>
+  <ion-item>
+    <ion-label>Periodo</ion-label>
+    <ion-select placeholder="Periodo">
+      <ion-select-option value="{{periodo}}">{{periodo}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
 
-  <ion-card style="width: 50%; text-align: center; margin: auto; margin-top: 20px; border-radius: 10px;">
+  <ion-card  
+  style="width: 50%; text-align: center; margin: auto; margin-top: 20px; border-radius: 10px;">
     <div style="margin-top: 10px;">
-    <ion-label style="margin-top: 10px;">Promedio de Puntos</ion-label>
-    <h1>0</h1>
+    <ion-label style="margin-top: 10px;">Total de Puntos</ion-label>
+    <h1>{{totalPunto}}</h1>
   </div>
-  </ion-card>
+  </ion-card> 
 
+<ion-card mode="md" *ngFor="let listr of data" >
+  <ion-card-header>
+    <ion-card-subtitle>{{listr.titulo}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-row mode="ios">
+      <ion-col size="4" class="ion-align-self-start">
+        <ion-card  id="pnt" color="secondary">
+          <ion-label><b>Puntos</b></ion-label><br>
+          <strong style="font-size: 25px;">{{listr.punto}}</strong>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-card   id="mes" style="background-color: #ddddddbb">
+          <ion-label style="width: 100px; height: 25px">
+            <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
+              {{listr.actividadI | date:'MMMM'}}
+            </p>
+          </ion-label>
+          <strong style="color: black; font-size: 25px; font-weight: bold;">{{listr.actividadI |date:'dd'}}</strong>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="4" class="ion-align-items-end">
+        <ion-card  id="mes" style="background-color: #ddddddbb">
+          <ion-label style="width: 100px; height: 25px; ">
+            <p style="background-color: #003f75; font-size: 13px; color: white; margin-top: auto;">
+              {{listr.actividadF | date:'MMMM'}}
+            </p>
+          </ion-label>
+          <strong style="margin:auto; color: black; font-size: 25px; font-weight: bold;">{{listr.actividadF |
+            date:'dd'}}</strong>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+
+  </ion-card-content>
+</ion-card>
 
 </ion-content>

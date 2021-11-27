@@ -1,65 +1,70 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 
-ion-content{
-    --background: rgb(255 251 251 / 64%);
-}
+ion-content {
+    ion-card-subtitle {
+        text-transform: capitalize;
+        font-size: 21px;
+        font-weight: bold;
+        color: black;
+    }
 
+    ion-card {
+        background: #fff;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
 
+    ion-button{
+        --background: #2e3191;
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 15px;
+        width: 50px;
+        height: 35px;
+        border-radius: 4px;
+        margin: auto;
+    }
+    .items-puntos, .items-mesi, .items-mesf {
+        height: 90px;
+    }
+    .items-mesf .item-title {
+        background: red;
+    }
+    .items-mesi .item-title {
+        background: green;
+    }
+    .item-title {
+        width: 100%;
+        display: block;
+        text-align: center;
+        background: #2e3191;
+        color: #fff;
+        font-weight: bold;
+    }
+    .content-mes {
+        display: flex;
+        width: 100%;
+        height: 70px;
+    }
 
-ion-item {
-    height: 40px;
-    width: 100%;
-}
-p{
-    margin-top: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: Raleway;
-    font-weight: bold;
-    font-size: 25px;
-    
-}
-
-
-
-ion-col{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-#pnt{
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    margin-left: 20px;
-}
-strong{
-    font-size: 20px;
-    margin-right: 6px;
-}
-
-#mes{
-    width: 70px;
-    height: 60px;
-    text-align: center;
-    align-items: center;
-    
-}
-
-ion-card-header{
-    text-align: center;
-}
-ion-card-subtitle{
-    color: black;
-    font-size: 17px;
-    font-weight: bold;
-}
-
-ion-button{
-    width: 50px;
-    height: 35px;
-    
-}
-ion-textarea{
-    --height: 150px;
+    .cont-mes {
+        margin: auto;
+    }
+    .content-button {
+        display: flex;
+    }
+    ion-searchbar {
+        --background: #fff;
+        --border-radius: 4px;
+        width: 94%;
+        margin: auto;
+    }
+    ion-card-header{
+        text-align: center;
+    }
+    strong {
+        font-size: 18px;
+    }
 }
